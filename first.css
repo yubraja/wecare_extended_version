@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.containerrr {
+  border: 2px solid rgb(206, 206, 206);
+  border-radius: 25px;
+  /* margin: 15px 15px 105px 105px; */
+  margin-top: 7px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 10px;
+  padding: 7px 65px;
+  box-shadow: 7px 7px 5px rgb(41, 41, 41), -7px -7px 5px rgb(41, 41, 41);
+  /* box-shadow: -7px -7px 5px rgb(41, 41, 41) ;    */
+  /* width: auto; */
+}
+
+.containerrr h2 {
+  text-align: center;
+  font-size: 31px;
+}
+
+.aaa {
+  animation-name: alphabet;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+.container-fluiddd {
+  padding: 6px 105px;
+  /* border: 2px solid purple; */
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 35px;
+  /* width: fit-content;  */
+}
+
+.doctor {
+  padding: 10px 35px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 25px;
+  width: fit-content;
+  box-shadow: 5px 5px 2px rgb(145, 145, 145);
+}
+
+.patient {
+  padding: 10px 25px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 25px;
+  width: fit-content;
+  box-shadow: 5px 5px 2px rgb(100, 100, 100);
+}
+
+.img-box {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-box h2 {
+  text-align: center;
+  padding: 2px;
+}
+
+.img-box img {
+  border: 2px solid black;
+  border-radius: 14px;
+}
+
+.container-fluiddd div input {
+  padding: 5px 10px;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 19px;
+}
+.register-here p {
+  font-size: 16px;
+  font-weight: bold;
+}
+input[type="submit"],
+[type="button"] {
+  background-color: black;
+  color: cyan;
+  transition: 0.5s;
+}
+input[type="submit"],
+input[type="button"]:hover {
+  cursor: pointer;
+  background-color: cyan;
+  color: rgb(0, 0, 0);
+}
+input[type="submit"] {
+  background-color: black;
+  color: white;
+}
+input[type="submit"]:hover {
+  color: cyan;
+}
+.doctor p a,
+.patient p a {
+  text-decoration: none;
+}
+.navbar-nav .nav-item {
+  transition: 0.5s;
+}
+.navbar-nav .nav-item :hover {
+  text-decoration: underline;
+}
+.navbar-brand {
+  color: cyan;
+  -webkit-text-stroke: 1px cyan;    
+  /* font-weight: bold; */
+  font-size: 23px;
+  transition: 0.5s;
+}
+.navbar-brand:hover{
+    color: white;
+    -webkit-text-stroke: 1px white;
+}
+
+@keyframes alphabet {
+  from {
+    color: transparent;
+  }
+
+  to {
+    color: black;
+  }
+}

@@ -1,0 +1,153 @@
+<?php
+include "configure.php";
+$errors= array();
+$sucess=array();
+
+
+if (isset($_POST['submit']))//if submit is clicked
+{
+
+    //getting all the data from the form and storing it in variables
+	
+
+    $pusername=$_POST['pusername'];
+    $pemail=$_POST['pemail'];
+    $witness=$_POST['witness'];
+    $symptoms=$_POST['symptoms'];
+    $disease=$_POST['disease'];
+    $medicine=$_POST['medicine'];
+    $reports=$_POST['reports'];
+    $diet=$_POST['diet'];
+    $visit_date=$_POST['visit_date'];
+   
+
+
+//to store date and time we set default timezone for kathmandu and then adding date and time stamp on thisssss
+
+    date_default_timezone_set('Asia/katmandu');
+    $date=date("Y-m-d H:i:s"  );
+    
+
+//some task for images
+
+
+
+    $filename=$_FILES['photo']['name'];
+    $filetmp=$_FILES['photo']['tmp_name'];
+    $filesize=$_FILES['photo']['size'];
+    $filetype=$_FILES['photo']['type'];
+
+    $target_location="../assets/Users_images/".$filename;
+    $supported_extension=array('image/jpg','image/jpeg','image/png','image/gif','image/bmp','image/tiff','image/x-icon');
+
+
+
+    // $sql = "SELECT * FROM patient WHERE username='$pusername'";
+			
+	// $result = mysqli_query($conn, $sql);
+			
+	// if (($result->num_rows > 0)) {
+
+
+
+        //checking if the valid username is provided or not
+        $que="SELECT * FROM patient WHERE username='$pusername'";
+        $res=mysqli_query($conn,$que);
+    
+   while($value = mysqli_fetch_array($res))
+   {
+      if($pusername == $value["username"] )
+         $flag = true;
+   }
+
+
+
+if($flag){
+
+    
+
+
+//some task for images
+
+
+
+    $filename=$_FILES['photo']['name'];
+    $filetmp=$_FILES['photo']['tmp_name'];
+    $filesize=$_FILES['photo']['size'];
+    $filetype=$_FILES['photo']['type'];
+
+    $target_location="../assets/user_images".$filename;
+    $supported_extension=array('image/jpg','image/jpeg','image/png','image/gif','image/bmp','image/tiff','image/x-icon');
+
+
+
+
+    if(in_array($filetype,$supported_extension))
+    {
+
+        if (move_uploaded_file($filetmp,$target_location)) {//uploading file into our folder i.e assets/user_images
+            
+            $success["image"]="Image uploaded successfully";
+        } else {
+            $errors["image"]="Image uploading failed";
+
+            // header("Location: ../Add-Reports.html?error=".serialize($errors));//if something goes wrong we redirect to add_reports.php with error msg
+        }
+
+    
+    
+    
+        ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reporting(E_ALL);
+
+
+        //inserting data into database
+
+    
+    	$sql1 = "INSERT INTO report (username,email,witness,symptom,description,medicines,reports,instruction,visit_date,photo) VALUES ('$pusername','$pemail','$witness','$symptoms','$disease','$medicine','$reports','$diet','$visit_date','$filename')";
+    
+    		// $result= mysqli_query($conn,$sql1);
+        
+    
+
+    
+        // Execute query
+
+    
+        // Now let's move the uploaded image into the folder: image
+    
+
+        $result= mysqli_query($conn,$sql1);
+    
+    
+    		if($result) {
+            
+    			echo "<script>alert('Wow! report is pushed.');</script>";
+                $success["report"]="Report pushed successfully";
+
+                header("Location:../Add-Reports.html?success=".serialize($success));//if pushed then redirected to add_reports.html and success msg is provided 
+            }
+        
+    		else{
+    			echo"<script>alert('something unusual happend');</script>".mysqli_error($conn);
+                $errors["report"]="Report pushing failed";
+                header("Location:../Add-Reports.html?error=".serialize($errors)."&formdata=".serialize($_POST));//if not pushed then redirected to add_reports.html and error msg is provided 
+            
+            }	
+    }
+}
+else{
+    echo "<script>alert('Username is not valid');</script>";
+    $errors["username"]="Username is not valid";
+    header("Location:../Add-Reports.html?error=".serialize($error)."&formdata=".serialize($_POST));//if username is not valid then redirected to add_reports.html and error msg is provided
+}
+}
+
+
+
+else{
+    echo"<script>alert('You can't access this direcly ');</script>";
+    header("Location:../first.html");//if user tries to access this page directly then location is add_reports.html
+
+}
+
+?>

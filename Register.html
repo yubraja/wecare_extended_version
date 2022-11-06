@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="./Register.css">
+
+       <!-- favicon link here  -->
+       <link rel="shortcut icon" href="./images/mask-wali.jpg" type="image/x-icon">
+    <title>WeCare-Register</title>
+    
+</head>
+
+<body>
+    <form method="post" action="./php/register_new.php">
+        <h3 style="font-family:monospace;">Please Fill Up The Register Form <br> <br> </h3>
+        <p id="aaa">
+            I Am <br>
+            <label for="doctor"><input type="radio" value='doctor' name="mediname" id="doctor">DOCTOR</label>
+            <label for="patient"><input type="radio" value="patient" name="mediname" id="patient">PATIENT</label>
+        </p>
+        <p>
+            <input type="name" name="fname" id="fname" placeholder="First Name " required>
+        </p>
+        <p>
+            <input type="name" name="lname" id="lname" placeholder="Last Name " required>
+        </p>
+        <p>
+            <input type="address" name="address" id="address" placeholder="Current Address  ">
+        </p>
+        <p>
+            <input type="phone" name="phone" id="phone" placeholder="Phone No:  " required>
+        </p>
+        <p>
+            <input type="email" name="useremail" id="useremail" placeholder="Valid  Email" required>
+        </p>
+        <p id="aaa">
+
+            <label for="male"><input type="radio"value='male' name="gender" id="male">Male</label>
+            <label for="female"><input type="radio" value='female' name="gender" id="female">Female</label>
+            <label for="other"><input type="radio" value="other" name="gender" id="other">Other</label>
+        </p>
+        <p>
+            <input type="text" name="username" id="useremail" placeholder="UserName" required>
+        </p>
+        <p>
+            <input type="password" name="userpassword" id="userpassword" placeholder="Password" required>
+        </p>
+        <p>
+            <input type="password" name="repassword" id="userpassword" placeholder="Re-Enter Password" required>
+        </p>
+        <p>
+            <input name="submit" type="submit" value="Submit Now">
+        </p>
+    </form>
+</body>
+
+</html>
