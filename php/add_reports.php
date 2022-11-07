@@ -32,15 +32,6 @@ if (isset($_POST['submit']))//if submit is clicked
 
 
 
-    $filename=$_FILES['photo']['name'];
-    $filetmp=$_FILES['photo']['tmp_name'];
-    $filesize=$_FILES['photo']['size'];
-    $filetype=$_FILES['photo']['type'];
-
-    $target_location="../assets/Users_images/".$filename;
-    $supported_extension=array('image/jpg','image/jpeg','image/png','image/gif','image/bmp','image/tiff','image/x-icon');
-
-
 
     // $sql = "SELECT * FROM patient WHERE username='$pusername'";
 			
@@ -76,7 +67,7 @@ if($flag){
     $filesize=$_FILES['photo']['size'];
     $filetype=$_FILES['photo']['type'];
 
-    $target_location="../assets/user_images".$filename;
+    $target_location="/opt/lampp/htdocs/wecarenew/assets/user_images".$filename;
     $supported_extension=array('image/jpg','image/jpeg','image/png','image/gif','image/bmp','image/tiff','image/x-icon');
 
 
@@ -84,12 +75,12 @@ if($flag){
 
     if(in_array($filetype,$supported_extension))
     {
-
+        
         if (move_uploaded_file($filetmp,$target_location)) {//uploading file into our folder i.e assets/user_images
             
             $success["image"]="Image uploaded successfully";
         } else {
-            $errors["image"]="Image uploading failed";
+            $errors["image"]="Image uploading failed!";
 
             // header("Location: ../Add-Reports.html?error=".serialize($errors));//if something goes wrong we redirect to add_reports.php with error msg
         }
@@ -97,7 +88,6 @@ if($flag){
     
     
     
-        ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reporting(E_ALL);
 
 
         //inserting data into database
@@ -124,7 +114,7 @@ if($flag){
     			echo "<script>alert('Wow! report is pushed.');</script>";
                 $success["report"]="Report pushed successfully";
 
-                header("Location:../Add-Reports.html?success=".serialize($success));//if pushed then redirected to add_reports.html and success msg is provided 
+                header("Location:../Add-Reports.html?success=".serialize($success)."errors=".serialize($errors));//if pushed then redirected to add_reports.html and success msg is provided 
             }
         
     		else{

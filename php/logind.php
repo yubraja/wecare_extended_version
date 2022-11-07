@@ -15,8 +15,9 @@ if (isset($_SESSION['doctor'])) {
 if (isset($_POST['submit'])) {
     
     $username=$_POST['dname'];
-    $password=($_POST['dpass']);
+    $password=md5($_POST['dpass']);
 
+	
 	$sql = "SELECT * FROM doctor_login WHERE username='$username' AND password='$password'";
 	$result = mysqli_query($conn, $sql);
 	if ($result->num_rows > 0) {

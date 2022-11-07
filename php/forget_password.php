@@ -8,18 +8,18 @@ if(isset($_POST['forget']) )
   $username=$_POST['username'];
   $phone=$_POST['phone'];
   
-  $pass=$_POST['userpassword'];
-  $repass=$_POST['repassword'];
+  $pass=md5($_POST['userpassword']);
+  $repass=md5($_POST['repassword']);
 
   if($pass==$repass)
   {
     if($_SESSION['patient']!=null)
     {
-      $query="SELECT  username from patient_details where username=$username ";
+      $query="SELECT  username from patient where username=$username ";
     $result_query=mysqli_query($conn,$query);
     if(!($result_query ->num_rows >0))
     {
-      $sql="UPDATE patient_details SET password='$pass' WHERE username='$username' AND email='$email'";
+      $sql="UPDATE patient SET password='$pass' WHERE username='$username' AND email='$email'";
     $result=mysqli_query($conn,$sql);
     if($result)
     {
@@ -29,7 +29,7 @@ if(isset($_POST['forget']) )
 
 
 
-      header("Location:../first.html?success=".seialize($success));
+      header("Location:../view-reports.html?success=".seialize($success));
     }
     else
     {
@@ -40,7 +40,7 @@ if(isset($_POST['forget']) )
     }
     else{
       $errors['patient']="username not found";
-      header('Location:../forgent_password.html?error='.serialize($errors));
+      header('Location:../forget_password.html?error='.serialize($errors));
     }
     }
 
@@ -51,11 +51,11 @@ if(isset($_POST['forget']) )
     else if($_SESSION['doctor']!=null)
     {
 
-      $query="SELECT  username from doctor_details where username=$username ";
+      $query="SELECT  username from doctor where username=$username ";
     $result_query=mysqli_query($conn,$query);
     if(!($result_query ->num_rows >0))
     {
-      $sql="UPDATE doctor_details SET password='$pass' WHERE username='$username' AND email='$email'";
+      $sql="UPDATE doctor SET password='$pass' WHERE username='$username' AND email='$email'";
     $result=mysqli_query($conn,$sql);
     if($result)
     {
@@ -65,7 +65,7 @@ if(isset($_POST['forget']) )
 
 
 
-      header("Location:../add_reports.html?success=".seialize($success));
+      header("Location:../Medi-Report.html?success=".seialize($success));
     }
     else
     {

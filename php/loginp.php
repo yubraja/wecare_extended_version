@@ -6,15 +6,13 @@ include 'configure.php';
 session_start();//session started
 
 
-if (isset($_SESSION['patient'])) {//checking session already exists or not?
-    
-    header("Location: ../view_reports.html");
-}
 
 if (isset($_POST['submit'])) {
     
     $username=$_POST['pname'];
     $password=md5(($_POST['ppass']));
+	echo $username;
+	echo $password;
 
 	$sql = "SELECT * FROM patient WHERE username='$username' AND password='$password'";
 	$result = mysqli_query($conn, $sql);
@@ -26,7 +24,8 @@ if (isset($_POST['submit'])) {
 		
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['patient'] = $row['username'];
-		header("Location: welcome.php");//if pass and username matches then directed towards another page
+		$sucess['correct']= "You are logged in";
+		header("Location:./view_reports.php?success=".serialize($sucess));//if pass and username matches then directed towards another page
 
 
 
@@ -38,7 +37,7 @@ if (isset($_POST['submit'])) {
 
 		
 		$errors['login'] = "Woops! Email or Password is Wrong.";
-		header("Location: ../login.html?error=".serialize($errors));
+		header("Location: ../first.html?error=".serialize($errors));
 
 
 	}
