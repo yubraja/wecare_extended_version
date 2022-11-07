@@ -32,4 +32,8 @@ if (isset($_POST['submit'])) {
         header("Location: ../login.html?error=".serialize($errors));
 	}
 }
+else{
+	$errors['login'] = "You can't access directly!!.";
+	header("Location: ../first.html?errors=".serialize($errors));
+}
 ?>

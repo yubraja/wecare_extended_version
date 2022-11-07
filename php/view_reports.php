@@ -11,7 +11,7 @@ session_start();//session started
 $username=$_SESSION['patient'];
 echo $username;
 
-$sql = "SELECT * FROM report WHERE username='$username' ORDER BY val DESC";
+$sql = "SELECT * FROM report WHERE username='$username' ";
 $result = mysqli_query($conn, $sql);
 if($result)
 {

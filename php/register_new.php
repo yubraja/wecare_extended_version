@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     $username=$_POST['username'];
     $password = md5($_POST['userpassword']);
     $repassword = md5($_POST['repassword']);
-    
+
 
 
     if($password==$repassword)
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
 					
 					$_SESSION['patient'] = $username;
 					$success["report"]="register completed";
-                    header("Location: ./view_reports.php?success=".serialize($success));
+                    header("Location: ../view-reports.php?success=".serialize($success));
                 }
                 else{
                     echo "<script>alert('Error: " . $sqlRegister . "<br>" . mysqli_error($conn)."');</script>";
@@ -75,7 +75,7 @@ if(isset($_POST['submit'])){
 					
 					$_SESSION['doctor'] = $username;
 					$success["report"]="register completed";
-                    header("Location: ../Medi-Report.html?success=".serialize($success));
+                    header("Location: ../Medi-Report.php?success=".serialize($success));
                 }
                 else{
                     echo "<script>alert('Error: " . $sqlRegister . "<br>" . mysqli_error($conn)."');</script>";
