@@ -80,7 +80,7 @@
                         <input type="password" name="ppass" id="ppass" placeholder="Password">
                     </p>
                     <p>
-                            <input type="submit" name="submit" value="LogIn">
+                            <input type="submit" name="submit" onclick="openpopup()" value="LogIn">
                     
                         <a href="./forget-password.html">
                             <input type="button" value="Forget Password">
@@ -89,24 +89,41 @@
                 </form>
             </div>
 
+ 
+
             <!-- patient wala end  -->
 
         </div>
     </div>
 
         <!-- popup wala  line  -->
-        <div class="popup">
+        <div class="popup" id="popup">
             <img src="./images/error.png" alt="">
             <h2>Error</h2>
             <p>You have successfully submitted your details . I will help your further. How can i help you further , you can
                 directly inform me in the sense of that is </p>
-            <button type="button" class="btnn">OK</button>
+            <button type="button" class="btnn" onclick="closepopup()">OK</button>
         </div>
         <!-- popup end here -->
 
+        <!-- script for popup errror -->
+
+        <script>
+            let popup=document.getElementById('popup'); 
+
+            function openpopup(){
+                popup.classList.add("open-popup");  
+            }
+            function closepopup(){
+                popup.classList.remove("open-popup");  
+            }
+
+
+        </script>
+
     <!-- buttom bavbar start from here  -->
 
-    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark" style="background-color: purple;">
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark" style="background-color: green;">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">We<i class="fa-solid fa-circle-nodes"></i>Care</a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
@@ -140,6 +157,10 @@
                             <li><a class="dropdown-item" href="#">Services 3</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold text-info" href="#">Login As a Admin</a>
+                    </li>
+
                 </ul>
             </div>
         </div>

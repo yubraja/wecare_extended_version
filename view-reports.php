@@ -78,7 +78,7 @@ else{
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <!-- <li><a href="./Add-Reports.html" class="nav-link px-2 link-light fs-5 ">Add-Reports</a></li> -->
-                    <li><a href="#" class="nav-link px-2 link-warning fs-5">Medi-Reports</a></li>
+                    <li><a href="#" class="nav-link px-2 link-light fs-5">Medi-Reports</a></li>
                     <!-- <li><a href="./Medicine.html" class="nav-link px-2 link-light fs-5">Medi-Cine</a></li>
           <li><a href="symptoms.html" class="nav-link px-2 link-light fs-5">Symptoms</a></li> -->
                     <li><a href="#" class="nav-link px-2 link-dark fs-5">FAQs</a></li>
