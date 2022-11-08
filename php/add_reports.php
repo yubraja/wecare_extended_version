@@ -67,7 +67,7 @@ if($flag){
     $filesize=$_FILES['photo']['size'];
     $filetype=$_FILES['photo']['type'];
 
-    $target_location="/opt/lampp/htdocs/wecarenew/assets/user_images".$filename;
+    $target_location="/opt/lampp/htdocs/wecarenew/assets/user_images/".$filename;
     $supported_extension=array('image/jpg','image/jpeg','image/png','image/gif','image/bmp','image/tiff','image/x-icon');
 
 
