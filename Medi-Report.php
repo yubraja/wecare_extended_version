@@ -1,15 +1,13 @@
 <?php
 
-
-
-
+$id=0; 
 include "./php/configure.php";
 
 
 session_start(); //session started
 
 $username = $_SESSION['doctor'];
-$username = 'yubis';
+$username = 'oyee';
 
 $sql = "SELECT * FROM report WHERE username='$username' ";
 $result = mysqli_query($conn, $sql);
@@ -130,35 +128,85 @@ $result = mysqli_query($conn, $sql);
 
 
                 <?php
-                 
-                 $i=1;
 
-                  $sql = "SELECT * FROM report WHERE username='$username' ";
-                  $result = mysqli_query($conn, $sql);
-                  
+        $i = 1;
 
-                 
+        $sql = "SELECT * FROM report WHERE username='$username' ";
+        $result = mysqli_query($conn, $sql);
 
-                 
-                 ?>
 
-                <div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel"
+
+
+
+        ?>
+
+
+
+                
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+
+                    <div class="col">
+                        <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+              # code...                                                      
+
+
+
+            ?>
+
+                        <div class="card shadow-sm">
+
+                            <img class="bd-placeholder-img card-img-top"
+                                src="./assets/user_images/<?php echo $row['photo'] ?>" width="100%" height="325">
+
+                            <div class="card-body">
+                                <p class="card-text">Next Visit Date:<?php
+                                                        $orgDate = $row['visit_date'];
+                                                        $date = str_replace('-"', '/', $orgDate);
+                                                        $newDate = date("Y/m/d", strtotime($date));
+                                                        echo $newDate;
+                                                        echo "<br>"; ?>
+                                    Instructions to follow:<?php echo $row['instruction'];
+                                            echo "<br>"; ?>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-outline-info my-2" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">View</a>
+                                        <a href="#" class="btn btn-outline-danger my-2" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModall"
+                                            onclick="myfunction(<?php echo $id; ?>)">Edit</a>
+                                    </div>
+                                    <small class=" text-muted"><?php   ?></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel"
+                
                     aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Medical Report No <?php echo $i;
-                                    $i++;
-                                     ?>
+                                <h5 class="modal-title" id="exampleModalLabel">Medical Report No <?php 
+                echo $id;
+                ?>
                                 </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="card mb-3">
-                                    <img <img class="bd-placeholder-img card-img-top"
-                                        src="./assets/user_images/<?php echo $row['photo'] ?>" width="100%"
-                                        height="325">
+                                    <img <img class="bd-placeholder-img card-img-top" src="./assets/user_images/"
+                                        width="100%" height="325">
 
                                     <div class="card-body">
 
@@ -250,52 +298,6 @@ $result = mysqli_query($conn, $sql);
 
 
 
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-
-
-                    <div class="col">
-                        <?php
-            while ($row = mysqli_fetch_assoc($result)) {
-              # code...
-
-                  $id = 1;
-
-            ?>
-
-                        <div class="card shadow-sm">
-
-                            <img class="bd-placeholder-img card-img-top"
-                                src="./assets/user_images/<?php echo $row['photo'] ?>" width="100%" height="325">
-
-                            <div class="card-body">
-                                <p class="card-text">Next Visit Date:<?php
-
-                                                        $orgDate = $row['visit_date'];
-                                                        $date = str_replace('-"', '/', $orgDate);
-                                                        $newDate = date("Y/m/d", strtotime($date));
-                                                        echo $newDate;
-                                                        echo "<br>"; ?>
-                                    Instructions to follow:<?php echo $row['instruction'];
-                                            echo "<br>"; ?>
-                                </p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <a href="#" class="btn btn-outline-info my-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">View</a>
-                                        <a href="#" class="btn btn-outline-danger my-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModall">Edit</a>
-                                    </div>
-                                    <small class="text-muted"><?php   ?></small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-
     </main>
 
     <!-- main end here  -->
@@ -359,6 +361,17 @@ $result = mysqli_query($conn, $sql);
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
-</html>
+    <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function myfunction(id){
+       console.log(id);
+
+        }
+        </script>
+
+</body>
+< /html>
