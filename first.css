@@ -89,15 +89,15 @@
 }
 input[type="submit"],
 [type="button"] {
-  background-color: black;
-  color: cyan;
+  background-color: green;
+  color: white;
   transition: 0.5s;
 }
 input[type="submit"],
 input[type="button"]:hover {
   cursor: pointer;
-  background-color: cyan;
-  color: rgb(0, 0, 0);
+  /* background-color: cyan; */
+  color: black;
 }
 input[type="submit"] {
   background-color: black;
@@ -135,13 +135,22 @@ input[type="submit"]:hover {
   background-color: white;
   color: black;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
   /* to make it on the center of the webpage */
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.1) ;
   border-radius: 15px;
   text-align: center;
   padding: 0 30px 30px;
+  visibility: hidden;
+  transition: tranform 0.4s, top 0.4s;
+}
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+
 }
 .popup img {
   height: 100px;
@@ -159,7 +168,7 @@ input[type="submit"]:hover {
   font-family: "Courier New", Courier, monospace;
 }
 .popup button {
-  color: white;
+  color: black;
   background-color: red;
   width: 100%;
   border-radius: 12px;
@@ -167,7 +176,7 @@ input[type="submit"]:hover {
   padding: 7px 0px;
   cursor: pointer;
   /* background-color: #6fd649; */
-  font-size: 18px;
+  font-size: 15px;
   box-shadow: 0 2px 5px rgb(0, 0, 0);
   font-weight: bold;
 }
