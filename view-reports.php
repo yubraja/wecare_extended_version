@@ -1,7 +1,36 @@
 <?php
 
-include"./php/view_reports.php";
+
+
+
+include"./php/configure.php";
+
+
+session_start();//session started
+
+$username=$_SESSION['patient'];
+$username='yubis';
+
+$sql = "SELECT * FROM report WHERE username='$username' ";
+$result = mysqli_query($conn, $sql);
+if($result)
+{
+$row = mysqli_fetch_assoc($result);
+
+
+}
+else{
+    $errors['reports']="Empty Reports!!!";
+    header("Location: ../view-reports.php?error=".serialize($errors));
+}
+
+
+
+
+
+
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -34,6 +63,7 @@ include"./php/view_reports.php";
         }
     </style>
 </head>
+
 
 
 <body>
@@ -77,6 +107,7 @@ include"./php/view_reports.php";
         </div>
     </header>
     <!-- nav header part end here  -->
+<!-- 
 
     <!-- main is here al all  -->
     <main>
@@ -119,10 +150,9 @@ include"./php/view_reports.php";
                             </div>
                             <div class="modal-body">
                                 <div class="card mb-3">
+                                    
                                     <img src="./images/born-baby.jpg" height="600px" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                      <h5 class="card-title">Future Engineer</h5>
-                                      <p class="card-text">“The difference between ordinary and extraordinary is that little extra And He is the one " --WeCare</p>
 
 
                                       <!-- all reports here  -->
@@ -390,4 +420,9 @@ include"./php/view_reports.php";
     </script>
 </body>
 
+
+
+
+
 </html>
+// 

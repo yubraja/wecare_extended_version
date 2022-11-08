@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['patient'] = $row['username'];
 		$sucess['correct']= "You are logged in";
-		header("Location:./view_reports.php?success=".serialize($sucess));//if pass and username matches then directed towards another page
+		header("Location:../view-reports.php?success=".serialize($sucess));//if pass and username matches then directed towards another page
 
 
 
@@ -41,5 +41,9 @@ if (isset($_POST['submit'])) {
 
 
 	}
+}
+else{
+	$errors['login'] = "You can't access directly!!.";
+	header("Location: ../first.html?errors=".serialize($errors));
 }
 ?>

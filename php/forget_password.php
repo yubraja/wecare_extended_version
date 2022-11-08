@@ -29,7 +29,7 @@ if(isset($_POST['forget']) )
 
 
 
-      header("Location:../view-reports.html?success=".seialize($success));
+      header("Location:../view-reports.php?success=".seialize($success));
     }
     else
     {
