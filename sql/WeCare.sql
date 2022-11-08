@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2022 at 12:00 PM
+-- Generation Time: Nov 08, 2022 at 12:13 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -80,17 +80,9 @@ CREATE TABLE `report` (
   `reports` varchar(200) DEFAULT NULL,
   `instruction` varchar(200) DEFAULT NULL,
   `visit_date` date NOT NULL,
-  `photo` varchar(50) NOT NULL
+  `photo` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `report`
---
-
-INSERT INTO `report` (`username`, `email`, `witness`, `symptom`, `description`, `medicines`, `reports`, `instruction`, `visit_date`, `photo`) VALUES
-('yubis', 'abc@gmail.com', 'Mother', 'fdsg', 'dfsg', 'dsfg', 'dsfg', 'fdsg', '2022-11-19', 'Cropped_20221106_200521.jpg'),
-('oyee', 'sfsdf@gmail.com', 'Sister', 'ksdjaglfd\r\nadfjgkl\r\ndsgklakjglfdj', 'dskgnlf\r\nlkfsdgskl\r\njdsfg', 'jsdfg\r\njkfdg\r\ndfsklg', 'jsdfagl\r\nkjfldg\r\nlndfg', 'jidsflgg\r\nfjlkgd\r\nfgdkjl\r\njsfdg', '2022-12-01', '01111.jpg'),
-('yubis', 'abc@gmail.com', 'Sister', 'dsfg', 'hdghj', 'fsgdhjk', 'fsdghj', 'sdfhjkdfgl\r\njfdgkjhkfdg\r\nfdjkfgdkljdfg\r\nfjkdjdfjdfgj', '2022-11-16', '01111.jpg');
 
 --
 -- Indexes for dumped tables
@@ -112,6 +104,7 @@ ALTER TABLE `patient`
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
+  ADD UNIQUE KEY `id` (`id`),
   ADD KEY `FK_report` (`username`);
 
 --
