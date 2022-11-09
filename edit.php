@@ -130,8 +130,7 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of Medicines</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="medicine" >  
-                    <?php echo $row['medicines'];  ?></textarea>
+                        rows="5" name="medicine" ><?php echo $row['medicines'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Necessary Medical Reports</label>
@@ -141,14 +140,21 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Instruction Regarding Diet</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="diet" >
-                    <?php echo $row['instruction'];  ?></textarea>
+                        rows="5" name="diet" ><?php echo $row['instruction'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Next Visit Date</label>
-                    <input type="datetime-local" class="form-control border border-2 border-success"
-                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" value=<?php echo $row['visit_date'];  ?>>
+                    <input type="date" class="form-control border border-2 border-success"
+                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" value=<?php 
+                        $orgDate = $row['visit_date'];  
+                         $date = str_replace('-"', '/', $orgDate); 
+                        $newDate = date("m/d/Y", strtotime($date));  
+ 
+  
+    
+                        echo $newDate;  ?>>
                 </div>
+                <?php echo $newDate;?>
 
 
                 <!-- Report photo  -->
@@ -156,8 +162,11 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlFile1">Input the File Photo (Everything_All_About_Disease)</label>
                     <input type="file" class="form-control-file border border-2 border-success"
-                        id="exampleFormControlFile1" name="photo" value=<?php echo $row['photo'];  ?>>
+                        id="exampleFormControlFile1" name="photo" value="./assets/user_images/"<?php     
+                        echo $row['photo'];  ?>>
                 </div>
+                <?php     
+                        echo $row['photo'];  ?>
 
                 <!-- report photo End here  -->
                 <hr style="height: 2px ;">
