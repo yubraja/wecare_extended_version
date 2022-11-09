@@ -13,6 +13,10 @@
             padding: 0;
         }
 
+        .container {
+            /* margin: 10px 13px; */
+           
+        }
 
         .people {
             padding: 15px 10px;
@@ -48,17 +52,17 @@
             <div class="container mt-3">
                 <label for="exampleDataList" class="form-label">Patients's Username(बिरामीको प्रयोगकर्ता नाम)</label>
                 <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList"
-                    name="pusername" placeholder="Type Username to search..." >
+                    name="pusername" placeholder="Type Username to search..." readonly>
 
                 <div class="form-group mt-3 ">
                     <label for="exampleFormControlInput1">Patients's Email Address(बिरामीको इमेल ठेगाना)</label>
                     <input type="email" class="form-control border border-2 border-success" name="pemail"
-                        id="exampleFormControlInput1" placeholder="name@example.com" >
+                        id="exampleFormControlInput1" placeholder="name@example.com" readonly>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlSelect1">Witness(साक्षी) if Any </label>
                     <select class="form-control border border-2 border-success" id="exampleFormControlSelect1"
-                        name="witness" >
+                        name="witness" readonly>
                         <option value="No-one">No-one</option>
                         <option value="Father">Father</option>
                         <option value="Mother"  selected>Mother</option>
@@ -73,32 +77,32 @@
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Symptoms(लक्षणहरू) Of The Patient</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="symptoms" ></textarea>
+                        rows="5" name="symptoms" readonly></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of The Disease(रोग को विवरण)</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="7" name="disease" ></textarea>
+                        rows="7" name="disease" readonly></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of Medicines(औषधिको विवरण)</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="medicine" ></textarea>
+                        rows="5" name="medicine" readonly></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Necessary Medical Reports(आवश्यक मेडिकल रिपोर्टहरू)</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="reports" ></textarea>
+                        rows="5" name="reports" readonly></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Instruction Regarding Diet(आहार सम्बन्धि निर्देशन)</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="diet" ></textarea>
+                        rows="5" name="diet" readonly></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Next Visit Date</label>
                     <input type="datetime-local" class="form-control border border-2 border-success"
-                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" >
+                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" readonly>
                 </div>
 
 
@@ -107,7 +111,7 @@
                 <div class="form-group mt-3">
                     <label for="exampleFormControlFile1">Input the File Photo (Everything_All_About_Disease)</label>
                     <input type="file" class="form-control-file border border-2 border-success"
-                        id="exampleFormControlFile1" name="photo" >
+                        id="exampleFormControlFile1" name="photo" readonly>
                 </div>
 
                 <!-- report photo End here  -->
@@ -115,10 +119,10 @@
 
                 <div class="modal-footer">
                     <a href="./view-reports.php">
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Understand</button>
                     </a>
                     <a href="./view-reports.php">
-                        <button type="button" class="btn btn-danger data-bs-dismiss=" modal">Delete</button>
+                        <button type="button" class="btn btn-danger data-bs-dismiss=" modal">Close</button>
                     </a>
                 </div>
             </div>
