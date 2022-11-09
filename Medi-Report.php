@@ -51,6 +51,9 @@ $result = mysqli_query($conn, $sql);
     <title>WeCare-DoctorMedi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/78e6212ab3.js" crossorigin="anonymous"></script>
+    <!-- favicon ko link  -->
+    <link rel="shortcut icon" href="./images/logooo.png" type="image/x-icon">
+
     <style>
     .nav-link .px-2 .link-light .fs-5 .ddd {
         color: purple !important;
