@@ -1,19 +1,40 @@
+
+<script>
+    var report_id=0;
+
+    </script>
+
 <?php
 
-$id=0; 
-include "./php/configure.php";
 
 
-session_start(); //session started
 
-$username = $_SESSION['doctor'];
-$username = 'oyee';
+include './php/configure.php';
+
+session_start();//session started
+
+if($_SESSION['p_report'])
+{
+    $username=$_SESSION['p_report'];
+}
+
+else if (isset($_POST['submit'])) {
+
+    
+
+
+
+
+$username = $_POST['username'];
+$_SESSION['p_report']=$username;
+
+}
+else{
+    header("Location:./first.html?error=direct access is not permitted");
+}
 
 $sql = "SELECT * FROM report WHERE username='$username' ";
 $result = mysqli_query($conn, $sql);
-
-
-
 
 
 
@@ -124,12 +145,10 @@ $result = mysqli_query($conn, $sql);
 
                 <!-- pop ups model starts from here  -->
                 <!-- popups models starts from here -->
-                <!-- Modal -->
-
+    
 
                 <?php
 
-        $i = 1;
 
         $sql = "SELECT * FROM report WHERE username='$username' ";
         $result = mysqli_query($conn, $sql);
@@ -141,21 +160,20 @@ $result = mysqli_query($conn, $sql);
         ?>
 
 
-
                 
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
 
 
-                    <div class="col">
                         <?php
-            while ($row = mysqli_fetch_assoc($result)) {
+                    while ($row = mysqli_fetch_assoc($result)) {
               # code...                                                      
+            
 
 
-
-            ?>
+                    ?>
+                    <div class="col">
 
                         <div class="card shadow-sm">
 
@@ -164,6 +182,7 @@ $result = mysqli_query($conn, $sql);
 
                             <div class="card-body">
                                 <p class="card-text">Next Visit Date:<?php
+                                                       $id=$row['id'];
                                                         $orgDate = $row['visit_date'];
                                                         $date = str_replace('-"', '/', $orgDate);
                                                         $newDate = date("Y/m/d", strtotime($date));
@@ -196,9 +215,10 @@ $result = mysqli_query($conn, $sql);
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Medical Report No <?php 
-                echo $id;
-                ?>
+                                <h5 class="modal-title" id="exampleModalLabel">Medical Report No <?php
+                                    
+                                    echo $report_id;
+                                ?>
                                 </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
@@ -366,10 +386,16 @@ $result = mysqli_query($conn, $sql);
           src="https://code.jquery.com/jquery-3.4.1.min.js"
           integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
           crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        function myfunction(id){
+<script type="text/javascript">
+     
+       function myfunction(id){
+           
        console.log(id);
+       report_id=id;
 
+        // location.replace("./Medi-Report.php?" + report_id);
+
+          
         }
         </script>
 
