@@ -7,16 +7,20 @@
   <title>Patients login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/78e6212ab3.js" crossorigin="anonymous"></script>
+  <!-- favicon ko link  -->
+  <link rel="shortcut icon" href="./images/logooo.png" type="image/x-icon">
+
   <style>
-    input{
+    input {
       border: 2px solid green;
     }
+
     .border-success {
-  --bs-border-opacity: 1;
-  border-color: rgba(var(--bs-success-rgb), var(--bs-border-opacity)) !important;
-}
+      --bs-border-opacity: 1;
+      border-color: rgba(var(--bs-success-rgb), var(--bs-border-opacity)) !important;
+    }
   </style>
-  
+
 </head>
 
 <body>
@@ -59,7 +63,7 @@
     </div>
   </header>
   <!-- nav header part end here  -->
-    <!-- <datalist id="datalistOptions">
+  <!-- <datalist id="datalistOptions">
       <option value="Prof. Dr. Suman Sharma  ">
       <option value="Dr. Binay Rijal महिला तथा यौन रोग विशेषज्ञ">
       <option value="Dr. Yubraj Adhikari  प्रसुति वार्ड">
@@ -77,18 +81,19 @@
       Department of Radiology">
     </datalist> -->
 
-    <!-- <form action=""></form> -->
+  <!-- <form action=""></form> -->
   <form action="./php/add_reports.php" method="post" enctype="multipart/form-data">
 
 
     <div class="container mt-3">
-    <label for="exampleDataList" class="form-label">Patients's Username</label>
-    <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList" name="pusername"
-      placeholder="Type Username to search...">
+      <label for="exampleDataList" class="form-label">Patients's Username(बिरामीको प्रयोगकर्ता नाम)</label>
+      <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList"
+        name="pusername" placeholder="Type Username to search...">
 
       <div class="form-group mt-3 ">
-        <label for="exampleFormControlInput1">Patients's Email address</label>
-        <input type="email" class="form-control border border-2 border-success" name="pemail" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="exampleFormControlInput1">Patients's Email address(बिरामीको इमेल ठेगाना)</label>
+        <input type="email" class="form-control border border-2 border-success" name="pemail"
+          id="exampleFormControlInput1" placeholder="name@example.com">
       </div>
       <div class="form-group mt-3">
         <label for="exampleFormControlSelect1">Witness(साक्षी) if Any </label>
@@ -105,28 +110,34 @@
       </div>
 
       <div class="form-group mt-3">
-        <label for="exampleFormControlTextarea1">Symptoms Of The Patient</label>
-        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="symptoms"></textarea>
+        <label for="exampleFormControlTextarea1">Symptoms Of The Disease(रोग को लक्षण)</label>
+        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5"
+          name="symptoms"></textarea>
       </div>
       <div class="form-group mt-3">
-        <label for="exampleFormControlTextarea1">Description Of The Disease</label>
-        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="7" name="disease"></textarea>
+        <label for="exampleFormControlTextarea1">Description Of The Disease(रोग को विवरण)</label>
+        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="7"
+          name="disease"></textarea>
       </div>
       <div class="form-group mt-3">
-        <label for="exampleFormControlTextarea1">Description Of Medicines</label>
-        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="medicine"></textarea>
+        <label for="exampleFormControlTextarea1">Description Of Medicines(औषधिको विवरण)</label>
+        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5"
+          name="medicine"></textarea>
       </div>
       <div class="form-group mt-3">
-        <label for="exampleFormControlTextarea1">Necessary Medical Reports</label>
-        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="reports"></textarea>
+        <label for="exampleFormControlTextarea1">Necessary Medical Reports(आवश्यक मेडिकल रिपोर्टहरू)</label>
+        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5"
+          name="reports"></textarea>
       </div>
       <div class="form-group mt-3">
-        <label for="exampleFormControlTextarea1">Instruction Regarding Diet</label>
-        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="diet"></textarea>
+        <label for="exampleFormControlTextarea1">Instruction Regarding Diet(आहार सम्बन्धि निर्देशन)</label>
+        <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5"
+          name="diet"></textarea>
       </div>
       <div class="form-group mt-3">
-        <label for="exampleFormControlInput1">Next Visit Date</label>
-        <input type="datetime-local" class="form-control border border-2 border-success" id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date">
+        <label for="exampleFormControlInput1">Next Visit Date(अर्को भ्रमण मिति)</label>
+        <input type="datetime-local" class="form-control border border-2 border-success" id="exampleFormControlInput1"
+          placeholder="dd/mm/yyyy" name="visit_date">
       </div>
 
 
@@ -134,15 +145,16 @@
 
       <div class="form-group mt-3">
         <label for="exampleFormControlFile1">Input the File Photo (Everything_All_About_Disease)</label>
-        <input type="file" class="form-control-file border border-2 border-success" id="exampleFormControlFile1" name="photo">
+        <input type="file" class="form-control-file border border-2 border-success" id="exampleFormControlFile1"
+          name="photo">
       </div>
-    
-    <!-- report photo End here  -->
 
-    <div class="d-grid gap-2 mt-3">
-      <button class="btn btn-success" type="submit" name="submit" value="submit" >Update Details</button>
+      <!-- report photo End here  -->
+
+      <div class="d-grid gap-2 mt-3">
+        <button class="btn btn-success" type="submit" name="submit" value="submit">Update Details</button>
+      </div>
     </div>
-  </div>
   </form>
 
 
