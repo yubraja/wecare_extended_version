@@ -200,7 +200,7 @@ $result = mysqli_query($conn, $sql);
                                             data-bs-target="#exampleModal">View</a>
                                         <a href="#" class="btn btn-outline-danger my-2" data-bs-toggle="modal"
                                             data-bs-target="#exampleModall"
-                                            onclick="myfunction(<?php echo $id;?>)">Edit</a>
+                                            onclick="oclick(<?php echo $id;?>)">Edit</a>
                                     </div>
                                     <small class=" text-muted"><?php   ?></small>
                                 </div>
@@ -287,9 +287,8 @@ $result = mysqli_query($conn, $sql);
           crossorigin="anonymous"></script>
 <script type="text/javascript">
      
-       function myfunction(id){
-           
-       console.log(id);
+       function oclick(id){
+          
        report_id=id;
 
         location.replace("./edit.php?id="+ report_id);

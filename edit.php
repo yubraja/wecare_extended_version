@@ -84,7 +84,7 @@ $id=$_GET['id'];
     <div class="container people">
 
 
-        <form action="./php/add_reports.php" method="post" enctype="multipart/form-data">
+        <form action="./php/update_record.php" method="post" enctype="multipart/form-data">
             <div class="h2">Medical Reports No.<?php echo $row['id'];   ?> </div>
 
             <div class="container mt-3">
@@ -126,8 +126,7 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of Medicines(औषधिको विवरण)</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="medicine" >  
-                    <?php echo $row['medicines'];  ?></textarea>
+                        rows="5" name="medicine" ><?php echo $row['medicines'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Necessary Medical Reports(आवश्यक मेडिकल रिपोर्टहरू)</label>
@@ -137,15 +136,14 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Instruction Regarding Diet(आहार सम्बन्धि निर्देशन)</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="diet" >
-                    <?php echo $row['instruction'];  ?></textarea>
+                        rows="5" name="diet" ><?php echo $row['instruction'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Next Visit Date</label>
                     <input type="datetime-local" class="form-control border border-2 border-success"
                         id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" value=<?php echo $row['visit_date'];  ?>>
                 </div>
-                <?php echo $newDate;?>
+                <?php echo $row['visit_date'];?>
 
 
                 <!-- Report photo  -->
@@ -162,11 +160,12 @@ $id=$_GET['id'];
                 <hr style="height: 2px ;">
 
                 <div class="modal-footer">
-                    <a href="./view-reports.php">
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+                    <a >
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        onclick="update_records(<?php echo $row['id'];?>)"</button>
                     </a>
-                    <a href="./view-reports.php">
-                        <button type="button" class="btn btn-danger data-bs-dismiss=" modal">Delete</button>
+                    <a>
+                        <button  type="button" class="btn btn-danger data-bs-dismiss=" modal" onclick="delete_records(<?php echo $row['id'];?>)">Delete</button>
                     </a>
                 </div>
             </div>
@@ -179,7 +178,31 @@ $id=$_GET['id'];
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 
+         crossorigin="anonymous"></script>
+<script type="text/javascript">
+     
+       function delete_records(id){
+           
+       
+       report_id=id;
 
+        location.replace("./php/delete_record.php?id="+ report_id);
+
+          
+        }
+
+
+
+       function update_records(id){
+           
+       
+       report_id=id;
+
+        location.replace("./php/update_record.php?id="+ report_id);
+
+          
+        }
+        </script>
 </body>
 
 </html>
