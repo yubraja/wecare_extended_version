@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/78e6212ab3.js" crossorigin="anonymous"></script>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Search Username </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            box-sizing: border-box;
+        }
+
+        .header {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* background: linear-gradient(green,transparent); */
+            background-color: green;
+            border-bottom: 2px solid rgb(93, 255, 79);
+        }
+
+        nav h2 {
+            color: white;
+            margin: 7px;
+            padding: 10px 14px;
+            font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+
+        .nav-links {
+            padding: 2px 0;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin: 0px 15px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 5px 0;
+            position: relative;
+            font-size: 21px;
+            font-family: cursive;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            background: #83ff1e;
+            width: 0;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: width 0.5s;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+
+        }
+
+        .btnnn {
+            /* background: #000000; */
+            color: #fff;
+            padding: 6px 7px;
+            border-radius: 7px;
+            cursor: pointer;
+            border: 2px solid rgb(74, 255, 119);
+        }
+
+        .content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 90%;
+            max-width: 900px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            padding: 50px;
+
+        }
+
+        .content h1 {
+            font-size: 45px;
+            font-weight: 600px;
+            margin: 40px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: white;
+            -webkit-text-stroke: 1px rgb(0, 0, 0);
+
+        }
+
+        .content form {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            /* border: 2px solid rgb(103, 255, 103); */
+        }
+
+        .content form input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0px 20px;
+            font-size: 21px;
+
+        }
+
+        .content form button {
+            background: green;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <h2>We<i class="fa-solid fa-circle-nodes"></i>Care</h2>
+
+            <ul class="nav-links">
+                <li><a href="">Home</a></li>
+                <li><a href="">Doctor</a></li>
+                <li><a href="">Patients</a></li>
+                <li><a href="">FAQs</a></li>
+                <li class="btnnn"><a href="">WelCome Mr. Admin</a></li>
+            </ul>
+        </nav>
+
+        <!-- main start from here...  -->
+
+
+        <div class="container">
+
+            <div class="admin-product-form-container">
+
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <h3>Enter Crendicials</h3>
+                    <input type="name" placeholder="enter First Name" name="fname" class="box">
+                    
+                    <input type="name" placeholder="enter Last Name" name="lname" class="box">
+
+                    <input type="address" name="address" placeholder="Current Address  " class="box">
+
+                    <input type="phone" name="phone" id="phone" placeholder="Phone No:  " required class="box">
+
+                    <input type="email" name="useremail" id="useremail" placeholder="Valid  Email" required class="box">
+
+                    <input type="text" name="username" id="useremail" placeholder="UserName" required class="box">
+
+                    <input type="password" name="userpassword" id="userpassword" placeholder="Password" required class="box">
+
+                    <input type="password" name="repassword" id="userpassword" placeholder="Re-Enter Password" required class="box">
+
+                    <input type="submit" class="btn" name="" value="add account">
+                </form>
+
+            </div>
+
+
+            <div class="product-display">
+                <table class="product-display-table">
+                    <thead>
+                        <tr>
+                            <th>Fname</th>
+                            <!-- <th>Lname</th> -->
+                            <th>Address</th>
+                            <!-- <th>Phone</th> -->
+                            <th>Email</th>
+                            <th>UserName</th>
+                            <th>Password</th>
+                            <!-- <th>Re-pass</th> -->
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Suman</td>
+                        <!-- <td>Sharma</td> -->
+                        <td>Baglung</td>
+                        <!-- <td>9866134804</td> -->
+                        <td>suman123@gmail.com</td>
+                        <td>Sumannn</td>
+                        <!-- <td>abc@321</td> -->
+                        <td>abc@321</td>
+                        <td>
+                            <a href="" class="btn"> <i class="fas fa-edit"></i> edit </a>
+                            <a href="" class="btn"> <i class="fas fa-trash"></i> delete </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- end here -->
+
+    </div>
+
+
+
+
+</body>
+
+</html>
