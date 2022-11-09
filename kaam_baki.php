@@ -2,37 +2,34 @@
 
 
 
-include './php/configure.php';
 
-// session_start();//session started
-
-// if($_SESSION['p_report'])
-// {
-//     $username=$_SESSION['p_report'];
-// }
-
-if (isset($_POST['submit'])) {
-
-    
+include"./php/configure.php";
 
 
+session_start();//session started
 
-
-$username = $_POST['username'];
-// $_SESSION['p_report']=$username;
-
-}
-else{
-    header("Location:./first.html?error=direct access is not permitted");
-}
+$username=$_SESSION['patient'];
+$username='oyee';
 
 $sql = "SELECT * FROM report WHERE username='$username' ";
 $result = mysqli_query($conn, $sql);
+if($result)
+{
+$row = mysqli_fetch_assoc($result);
+
+
+}
+else{
+    $errors['reports']="Empty Reports!!!";
+    header("Location: ../view-reports.php?error=".serialize($errors));
+}
+
+
+
 
 
 
 ?>
-
 
 
 <!doctype html>
@@ -41,42 +38,47 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WeCare-DoctorMedi</title>
+    <title>WeCare-PatientView</title>
+
+    <!-- full page css under one single file bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- fontawesone icon link here  -->
     <script src="https://kit.fontawesome.com/78e6212ab3.js" crossorigin="anonymous"></script>
-    <!-- favicon ko link  -->
-    <link rel="shortcut icon" href="./images/logooo.png" type="image/x-icon">
 
+    <!-- favicon link here  -->
+    <link rel="shortcut icon" href="./images/favicon.jpg" type="image/x-icon">
+
+    <!-- custom css little bit  -->
     <style>
-    .nav-link .px-2 .link-light .fs-5 .ddd {
-        color: purple !important;
-    }
-
-    main {
-        /* background-image: url("./images/hospital.jpg"); */
-        /* background-position: center;
-      background-repeat: no-repeat; */
-
-    }
-
-    .album {
-        background-color: rgb(94, 93, 88);
-    }
+        .nav-link .px-2 .link-light .fs-5 .ddd {
+            color: purple !important;
+        }
+        main{
+            background-image: url(./images/h.jpg);
+            margin-top: 0px;
+        }
+        .album{
+            background-color:azure;
+        }
     </style>
 </head>
+
+
 
 <body>
 
     <header class="p-3 border-bottom bg-success">
         <div class="container">
+
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
                     <a class="navbar-brand fw-bold fs-3" href="#">We<i class="fa-solid fa-circle-nodes"></i>Care</a>
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="./Add-Reports.html" class="nav-link px-2 link-light fs-5 ">Add-Reports</a></li>
-                    <li><a href="#" class="nav-link px-2 link-warning fs-5">Medi-Reports</a></li>
+                    <!-- <li><a href="./Add-Reports.html" class="nav-link px-2 link-light fs-5 ">Add-Reports</a></li> -->
+                    <li><a href="#" class="nav-link px-2 link-light fs-5">Medi-Reports</a></li>
                     <!-- <li><a href="./Medicine.html" class="nav-link px-2 link-light fs-5">Medi-Cine</a></li>
           <li><a href="symptoms.html" class="nav-link px-2 link-light fs-5">Symptoms</a></li> -->
                     <li><a href="#" class="nav-link px-2 link-dark fs-5">FAQs</a></li>
@@ -98,13 +100,14 @@ $result = mysqli_query($conn, $sql);
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="./php/logout.php">Sign out</a></li>
+                        <li><a class="dropdown-item" href="./logout.php">Sign out</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
     <!-- nav header part end here  -->
+<!-- 
 
     <!-- main is here al all  -->
     <main>
@@ -112,21 +115,31 @@ $result = mysqli_query($conn, $sql);
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light text-dark">WeCare:Medi-Reports</h1>
-                    <p class="lead text-secondary">Here You can add, delete and also modify Patients medical reports
-                        here . We WeCare
+                    <h1 class="fw-light">WeCare:Medi-Reports</h1>
+                    <p class="lead text-muted">Here You can only view your medical reports . We WeCare
                         Member and management team take all responsibility to take care of all your reports . <br> Thank
                         you!!!!!!!
                     </p>
                     <p>
-                        <a href="./Add-Reports.html" class="btn btn-success my-2"><i class="fa-solid fa-plus"></i>Add
-                            Reports</a>
-                        <a href="#" class="btn btn-danger my-2"><i class="fa-solid fa-minus"></i>Delete Reports</a>
+                        <button type="button" class="btn  btn-success" data-bs-toggle="popover" title="WeCare"
+                            data-bs-content="It is the most trustable and secure platform for storing and uploading medical reports . "
+                            data-bs-placement="left"><i class="fa-solid fa-plus"></i>More About Us</button>
+                        <button type="button" class="btn  btn-danger" data-bs-toggle="popover" title="Esewa"
+                            data-bs-content="Our Esewa id is 9866134804. Thank Your For your contribution . 
+                            We will remark it as a precious help   :)   "><i class="fa-solid fa-dollar"></i>Want To
+                            Contribute...?*</button>
+                        <!-- <button type="button" class="btn btn-outline-danger">Danger</button> -->
                     </p>
                 </div>
             </div>
         </section>
 
+        <div class="album py-5 ">
+            <div class="container">
+
+                <!-- popups models starts from here -->
+                <!-- Modal -->
+              
         <div class="album py-5 bg-light">
             <div class="container">
 
@@ -189,11 +202,10 @@ $result = mysqli_query($conn, $sql);
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-outline-info my-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">View</a>
-                                        <a href="#" class="btn btn-outline-danger my-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModall"
-                                            onclick="oclick(<?php echo $id;?>)">Edit</a>
+                                                                               <a href="#" class="btn btn-success my-2" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal"><i class="fa-solid fa-plus" onclick="oclick(<?php echo $id;?>)"></i>View
+                                            More</a>
+
                                     </div>
                                     <small class=" text-muted"><?php   ?></small>
                                 </div>
@@ -205,12 +217,8 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
 
-
-                <!-- edit ko lagi pani banda bayo yeha  -->
-
-
-
     </main>
+
 
     <!-- main end here  -->
 
@@ -272,23 +280,31 @@ $result = mysqli_query($conn, $sql);
         </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script
-          src="https://code.jquery.com/jquery-3.4.1.min.js"
-          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-          crossorigin="anonymous"></script>
-<script type="text/javascript">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+    </script>
+    <script type="text/javascript">
      
        function oclick(id){
           
        report_id=id;
-
-        location.replace("./edit.php?id="+ report_id);
+         console.log(report_id);
+        location.replace("./view.php?id="+ report_id);
 
           
         }
         </script>
 
 </body>
-< /html>
+
+
+
+
+
+</html>
+// 

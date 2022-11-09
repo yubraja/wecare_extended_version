@@ -1,7 +1,8 @@
-<?php
-include './configure.php';
 
+if (isset($_POST['submit'])) //if submit is clicked
+{
 
+    //getting all the data from the form and storing it in variables
    $id=$_POST['id'];
 
     $pemail = $_POST['pemail'];
@@ -13,16 +14,6 @@ include './configure.php';
     $diet = $_POST['diet'];
     $visit_date = $_POST['visit_date'];
 
-
-    echo $id;
-    echo $pemail;
-    echo $witness;
-      echo $symptoms;
-      echo $disease;
-      echo $medicine;
-      echo $reports;
-      echo $diet;
-      echo $visit_date;
 
 
 
@@ -62,23 +53,34 @@ include './configure.php';
         $supported_extension = array('image/jpg', 'image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff', 'image/x-icon');
 
 
-      // echo $filename;
+
 
         if (in_array($filetype, $supported_extension)) {
 
-            if (move_uploaded_file($filetmp, $target_location)) { 
+            if (move_uploaded_file($filetmp, $target_location)) { //uploading file into our folder i.e assets/user_images
+
                 $success["image"] = "Image uploaded successfully";
             } else {
                 $errors["image"] = "Image uploading failed!";
 
-                
+                // header("Location: ../Add-Reports.html?error=".serialize($errors));//if something goes wrong we redirect to add_reports.php with error msg
             }
-         }
-         
 
 
-          
+            //inserting data into database
+
             $sql1 = "UPDATE  report SET email='$pemail',witness='$witness',symptom='$symptoms',description='$disease',medicines='$medicine',reports='$reports',instruction='$diet',visit_date='$visit_date',photo='$filename'  where id='$id'";
+
+            // $result= mysqli_query($conn,$sql1);
+
+
+
+
+            // Execute query
+
+
+            // Now let's move the uploaded image into the folder: image
+
 
             $result = mysqli_query($conn, $sql1);
 
@@ -88,23 +90,23 @@ include './configure.php';
                 echo "<script>alert('Wow! report is update.');</script>";
                 $success["report"] = "Report updated successfully";
 
-                header("Location:../Medi-Report.php?success=" . serialize($success) . "errors=" . serialize($errors)); 
+                header("Location:../edit.php?success=" . serialize($success) . "errors=" . serialize($errors)); //if pushed then redirected to add_reports.html and success msg is provided 
             } else {
                 echo "<script>alert('something unusual happend');</script>" . mysqli_error($conn);
                 $errors["report"] = "Report updatingg failed";
-                header("Location:../edit.php?error=" . serialize($errors) ); 
+                header("Location:../edit.php?error=" . serialize($errors) ); //if not pushed then redirected to add_reports.html and error msg is provided 
 
-            
-               }
-     
+            }
+        }
+    } 
     
 
 
-// }
-
+}
+else{
+      echo "<script>alert('something unusual happend');</script>" . mysqli_error($conn);
+      $errors["report"] = "not clicked submit";
+      header("Location:../edit.php?error=" . serialize($errors) ); //if not pushed then redirected to add_reports.html and error msg is provided 
+   
+}
    //   }
-
-
-
-
-?>

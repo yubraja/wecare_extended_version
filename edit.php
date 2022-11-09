@@ -15,18 +15,6 @@ $id=$_GET['id'];
      $row = mysqli_fetch_array($resultSelect);
 
 
-    echo $row['username'];
-    echo $row['email'];
-    echo $row['witness'];
-    echo $row['symptom'];
-    echo $row['description'];
-    echo $row['medicines'];
-    echo $row[' reports'];
-    echo $row['instruction'];
-    echo $row['visit_date'];
-    echo $row['photo'];
-    echo $row['id'];
-
 
 
 ?>
@@ -87,6 +75,14 @@ $id=$_GET['id'];
         <form action="./php/update_record.php" method="post" enctype="multipart/form-data">
             <div class="h2">Medical Reports No.<?php echo $row['id'];   ?> </div>
 
+
+            <div class="container mt-3">
+                <label for="exampleDataList" class="form-label">Report no:</label>
+                <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList"
+                    name="id"  readonly   value=<?php echo $id;  ?>
+                    
+            
+
             <div class="container mt-3">
                 <label for="exampleDataList" class="form-label">Patients's Username(बिरामीको प्रयोगकर्ता नाम)</label>
                 <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList"
@@ -140,8 +136,8 @@ $id=$_GET['id'];
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Next Visit Date</label>
-                    <input type="datetime-local" class="form-control border border-2 border-success"
-                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" value=<?php echo $row['visit_date'];  ?>>
+                    <input type="date" class="form-control border border-2 border-success"
+                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" required>
                 </div>
                 <?php echo $row['visit_date'];?>
 
@@ -151,7 +147,7 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlFile1">Input the File Photo (Everything_All_About_Disease)</label>
                     <input type="file" class="form-control-file border border-2 border-success"
-                        id="exampleFormControlFile1" name="photo" value=<?php echo $row['photo'];  ?>>
+                        id="exampleFormControlFile1" name="photo" required ?>
                 </div>
                 <?php     
                         echo $row['photo'];  ?>
@@ -161,8 +157,8 @@ $id=$_GET['id'];
 
                 <div class="modal-footer">
                     <a >
-                        <button type="button" class="btn btn-success" data-bs-dismiss="modal"
-                        onclick="update_records(<?php echo $row['id'];?>)"</button>
+                        <button type="submit"name="submit" class="btn btn-success" data-bs-dismiss="modal"
+                        >Update</button>
                     </a>
                     <a>
                         <button  type="button" class="btn btn-danger data-bs-dismiss=" modal" onclick="delete_records(<?php echo $row['id'];?>)">Delete</button>
@@ -191,17 +187,6 @@ $id=$_GET['id'];
           
         }
 
-
-
-       function update_records(id){
-           
-       
-       report_id=id;
-
-        location.replace("./php/update_record.php?id="+ report_id);
-
-          
-        }
         </script>
 </body>
 
