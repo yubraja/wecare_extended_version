@@ -197,7 +197,7 @@ $result = mysqli_query($conn, $sql);
                                             data-bs-target="#exampleModal">View</a>
                                         <a href="#" class="btn btn-outline-danger my-2" data-bs-toggle="modal"
                                             data-bs-target="#exampleModall"
-                                            onclick="myfunction(<?php echo $id; ?>)">Edit</a>
+                                            onclick="myfunction(<?php echo $id;?>)">Edit</a>
                                     </div>
                                     <small class=" text-muted"><?php   ?></small>
                                 </div>
@@ -209,110 +209,6 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
 
-        <div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabel"
-                
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Medical Report No <?php
-                                    
-                                    echo $report_id;
-                                ?>
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="card mb-3">
-                                    <img <img class="bd-placeholder-img card-img-top" src="./assets/user_images/"
-                                        width="100%" height="325">
-
-                                    <div class="card-body">
-
-                                        <!-- all reports here  -->
-
-                                        <form>
-                                            <div class="form-group mt-3 ">
-                                                <label for="exampleDataList" class="form-label">Patients's
-                                                    Username</label>
-                                                <input class="form-control border border-2 border-success"
-                                                    list="datalistOptions" id="exampleDataList" name="dname"
-                                                    placeholder="Type Username to search...">
-
-
-
-                                                <label for="exampleFormControlInput1">Patients's Email address</label>
-                                                <input type="email" class="form-control border border-2 border-success"
-                                                    id="exampleFormControlInput1" placeholder="name@example.com">
-                                            </div>
-                                            <div class="form-group mt-3" aria-readonly="readonly">
-                                                <label for="exampleFormControlSelect1">Witness(साक्षी) if Any </label>
-                                                <select class="form-control border border-2 border-success"
-                                                    id="exampleFormControlSelect1">
-                                                    <option>No-one</option>
-                                                    <option>Father</option>
-                                                    <option>Mother</option>
-                                                    <option>Sister</option>
-                                                    <option>Brother</option>
-                                                    <option>Friends</option>
-                                                    <option>Staff</option>
-                                                    <option>Other</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group mt-3">
-                                                <label for="exampleFormControlTextarea1">Symptoms Of The Patient</label>
-                                                <textarea class="form-control border border-2 border-success"
-                                                    id="exampleFormControlTextarea1" rows="5"></textarea>
-                                            </div>
-                                            <div class="form-group mt-3">
-                                                <label for="exampleFormControlTextarea1">Description Of The
-                                                    Disease</label>
-                                                <textarea class="form-control border border-2 border-success"
-                                                    id="exampleFormControlTextarea1" rows="7"></textarea>
-                                            </div>
-                                            <div class="form-group mt-3">
-                                                <label for="exampleFormControlTextarea1">Description Of
-                                                    Medicines</label>
-                                                <textarea class="form-control border border-2 border-success"
-                                                    id="exampleFormControlTextarea1" rows="5" readonly></textarea>
-                                            </div>
-                                            <div class="form-group mt-3">
-                                                <label for="exampleFormControlTextarea1">Necessary Medical
-                                                    Reports</label>
-                                                <textarea class="form-control border border-2 border-success"
-                                                    id="exampleFormControlTextarea1" rows="5" readonly></textarea>
-                                            </div>
-                                            <div class="form-group mt-3">
-                                                <label for="exampleFormControlTextarea1">Instruction Regarding
-                                                    Diet</label>
-                                                <textarea class="form-control border border-2 border-success"
-                                                    id="exampleFormControlTextarea1" rows="5"></textarea>
-                                            </div>
-                                            <div class="form-group mt-3">
-                                                <label for="exampleFormControlInput1">Next Visit Date</label>
-                                                <input type="datetime-local"
-                                                    class="form-control border border-2 border-success"
-                                                    id="exampleFormControlInput1" placeholder="dd/mm/yyyy">
-                                            </div>
-
-                                        </form>
-
-                                        <!-- all reports end here  -->
-
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Update</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- edit ko lagi pani banda bayo yeha  -->
 
@@ -393,7 +289,7 @@ $result = mysqli_query($conn, $sql);
        console.log(id);
        report_id=id;
 
-        // location.replace("./Medi-Report.php?" + report_id);
+        location.replace("./edit.php?" + report_id);
 
           
         }
