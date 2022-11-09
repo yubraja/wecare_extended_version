@@ -1,4 +1,46 @@
+<?php
+include './php/configure.php';
+
+
+$id=$_GET['id'];
+
+
+
+
+
+
+     $sql = "SELECT * FROM report WHERE id='$id'";
+     $resultSelect = mysqli_query($conn, $sql);
+
+     $row = mysqli_fetch_array($resultSelect);
+
+
+    echo $row['username'];
+    echo $row['email'];
+    echo $row['witness'];
+    echo $row['symptom'];
+    echo $row['description'];
+    echo $row['medicines'];
+    echo $row[' reports'];
+    echo $row['instruction'];
+    echo $row['visit_date'];
+    echo $row['photo'];
+    echo $row['id'];
+
+
+
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -47,23 +89,24 @@
 
 
         <form action="./php/add_reports.php" method="post" enctype="multipart/form-data">
-            <div class="h2">Medical Reports No. 1</div>
+            <div class="h2">Medical Reports No.<?php echo $row['id'];   ?> </div>
 
             <div class="container mt-3">
                 <label for="exampleDataList" class="form-label">Patients's Username</label>
                 <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList"
-                    name="pusername" placeholder="Type Username to search...">
+                    name="pusername"     value=<?php echo $row['username'];  ?>
+                    >
 
                 <div class="form-group mt-3 ">
                     <label for="exampleFormControlInput1">Patients's Email address</label>
                     <input type="email" class="form-control border border-2 border-success" name="pemail"
-                        id="exampleFormControlInput1" placeholder="name@example.com">
+                        id="exampleFormControlInput1"  value=<?php echo $row['email'];  ?>>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlSelect1">Witness(साक्षी) if Any </label>
                     <select class="form-control border border-2 border-success" id="exampleFormControlSelect1"
                         name="witness">
-                        <option value="No-one">No-one</option>
+                        <option value="No-one" >No-one</option>
                         <option value="Father">Father</option>
                         <option value="Mother">Mother</option>
                         <option value="Sister">Sister</option>
@@ -77,32 +120,34 @@
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Symptoms Of The Patient</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="symptoms"></textarea>
+                        rows="5" name="symptoms" ><?php echo $row['symptom'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of The Disease</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="7" name="disease"></textarea>
+                        rows="7" name="disease"  ><?php echo $row['description'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of Medicines</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="medicine"></textarea>
+                        rows="5" name="medicine" >  
+                    <?php echo $row['medicines'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Necessary Medical Reports</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="reports"></textarea>
+                        rows="5" name="reports" ><?php echo $row['reports'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Instruction Regarding Diet</label>
                     <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="diet"></textarea>
+                        rows="5" name="diet" >
+                    <?php echo $row['instruction'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Next Visit Date</label>
                     <input type="datetime-local" class="form-control border border-2 border-success"
-                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date">
+                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" value=<?php echo $row['visit_date'];  ?>>
                 </div>
 
 
@@ -111,7 +156,7 @@
                 <div class="form-group mt-3">
                     <label for="exampleFormControlFile1">Input the File Photo (Everything_All_About_Disease)</label>
                     <input type="file" class="form-control-file border border-2 border-success"
-                        id="exampleFormControlFile1" name="photo">
+                        id="exampleFormControlFile1" name="photo" value=<?php echo $row['photo'];  ?>>
                 </div>
 
                 <!-- report photo End here  -->

@@ -289,7 +289,7 @@ $result = mysqli_query($conn, $sql);
        console.log(id);
        report_id=id;
 
-        location.replace("./edit.php?" + report_id);
+        location.replace("./edit.php?id="+ report_id);
 
           
         }
