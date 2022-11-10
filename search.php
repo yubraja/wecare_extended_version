@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if($_SESSION['p_report'] )
+{
+     unset($_SESSION['p_report']);
+
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

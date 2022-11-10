@@ -14,17 +14,6 @@ include './configure.php';
     $visit_date = $_POST['visit_date'];
 
 
-    echo $id;
-    echo $pemail;
-    echo $witness;
-      echo $symptoms;
-      echo $disease;
-      echo $medicine;
-      echo $reports;
-      echo $diet;
-      echo $visit_date;
-
-
 
 
 

@@ -4,24 +4,24 @@
 
 include './php/configure.php';
 
-// session_start();//session started
-
-// if($_SESSION['p_report'])
-// {
-//     $username=$_SESSION['p_report'];
-// }
+ session_start();//session started
 
 if (isset($_POST['submit'])) {
 
     
-
-
-
-
 $username = $_POST['username'];
+
+$_SESSION['p_report'] =$username;
+
 // $_SESSION['p_report']=$username;
 
 }
+
+else if($_SESSION['p_report'] )
+{   
+    $username=$_SESSION['p_report'];
+}
+
 else{
     header("Location:./first.html?error=direct access is not permitted");
 }
