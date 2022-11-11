@@ -182,11 +182,11 @@ input[type="submit"]:hover {
   width: 100px;
   border-radius: 50%;
   margin-top: -50px;
-  box-shadow: 0 2px 5px rgb(0, 0, 0);
+  box-shadow: 0 5px 5px rgb(0, 0, 0);
 }
 
 .popup h2 {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 27px;
   font-weight: bold;
   margin: 15px;
@@ -195,10 +195,12 @@ input[type="submit"]:hover {
   padding: 10px 15px;
   border-radius: 7px;
   font-size: 17px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Josefin Sans", sans-serif;
 }
 .popup input::placeholder{
   font-size: 21px;
+  font-family: "Josefin Sans", sans-serif;
+
 }
 .popup button {
   color: black;
