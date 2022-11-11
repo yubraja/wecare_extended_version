@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- doctor ko form : post method ma  -->
-                <form action="./php/logind.php" method="post">
+                <form action="" method="post">
                     <p>
                         <input type="text" name="dname" id="dname" placeholder="Username">
                     </p>
@@ -45,7 +45,9 @@
                     </p>
                     <p>
 
-                        <input name="submit" type="submit" onclick="openpopup()" value="LogIn">
+                        <!-- onclick="openpopup()" yo chai error pop up lagi thiyo -->
+
+                        <input name="submit" type="submit" onsubmit="Loginvalidation()" value="LogIn">
 
                         <a href="forget-password.html">
                             <input type="button" value="Forget Password">
@@ -55,6 +57,9 @@
 
             </div>
             <!-- doctor wala end  -->
+
+
+
 
 
 
@@ -79,13 +84,13 @@
                 <!-- patient ko form:post  method ma  -->
                 <form action="./php/loginp.php" method="post">
                     <p>
-                        <input type="text" name="pname" id="pname" placeholder="Username">
+                        <input type="text" name="pname" id="pname" size="10" placeholder="Username">
                     </p>
                     <p>
-                        <input type="password" name="ppass" id="ppass" placeholder="Password">
+                        <input type="password" name="ppass" id="ppass"  placeholder="Password">
                     </p>
                     <p>
-                        <input type="submit" name="submit"  onclick="openpopup()" value="LogIn">
+                        <input type="submit" name="submit" onclick="Loginvalidation()" value="LogIn">
 
                         <a href="./forget-password.html">
                             <input type="button" value="Forget Password">
@@ -106,7 +111,7 @@
         <div class="popup" id="popup">
             <img src="./images/error.png" alt="">
             <h2>Error!!!</h2>
-            <p>If you don't have an account then you can't login into the page . <br> Thank  You.</p>
+            <p>If you don't have an account then you can't login into the page . <br> Thank You.</p>
             <button type="button" class="btnn" style="background-color: red;" onclick="closepopup()">Close</button>
         </div>
     </form>
@@ -128,14 +133,14 @@
                 </p>
                 <p>
                     <input type="submit" name="submit" onclick="openpopup()" value="LogIn">
-
+                    
                     <a href="./forget-password.html">
                         <input type="button" value="Forget Password">
                     </a>
                 </p>
             </form>
-
-
+            
+            
         </div> -->
 
     <!-- script for popup as a admin -->
@@ -152,12 +157,16 @@
         }
     </script>
 
+    <script src="./Js/first.html_validataion.js"></script>
+
     <!-- buttom bavbar start from here  -->
 
     <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark" style="background-color: #14A44D;">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">We<i class="fa-solid fa-circle-nodes"></i>Care</a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarCollapse" style="">
@@ -175,7 +184,8 @@
                         <a class="nav-link active fw-semibold" href="#">QA Forum</a>
                     </li>
                     <li class="nav-item dropup">
-                        <a class="nav-link dropdown-toggle active fw-semibold" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <a class="nav-link dropdown-toggle active fw-semibold" href="#" id="dropdown10"
+                            data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown10">
                             <li><a class="dropdown-item fw-semibold" href="#">Services 1</a></li>
                             <li><a class="dropdown-item fw-semibold" href="#">Services 2</a></li>
