@@ -191,7 +191,7 @@ $result = mysqli_query($conn, $sql);
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-outline-info my-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">View</a>
+                                            data-bs-target="#exampleModal" onclick="viewClick(<?php echo $id;?>)">View</a>
                                         <a href="#" class="btn btn-outline-danger my-2" data-bs-toggle="modal"
                                             data-bs-target="#exampleModall"
                                             onclick="oclick(<?php echo $id;?>)">Edit</a>
@@ -288,6 +288,11 @@ $result = mysqli_query($conn, $sql);
         location.replace("./edit.php?id="+ report_id);
 
           
+        }
+
+        function viewClick(id){
+            report_id=id;
+            location.replace("./view.php?id="+report_id);
         }
         </script>
 
