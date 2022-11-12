@@ -2,7 +2,8 @@
 include './configure.php';
 
 
-   $id=$_POST['id'];
+    $id=$_POST['id'];
+    $pusername=$_POST['pusername'];
 
     $pemail = $_POST['pemail'];
     $witness = $_POST['witness'];
@@ -12,9 +13,8 @@ include './configure.php';
     $reports = $_POST['reports'];
     $diet = $_POST['diet'];
     $visit_date = $_POST['visit_date'];
-
-
-
+    $filename = $_FILES['photo']['name'];
+  
 
 
     //to store date and time we set default timezone for kathmandu and then adding date and time stamp on thisssss
@@ -25,13 +25,34 @@ include './configure.php';
 
     //some task for images
 
+if($visit_date==null)
+{
 
 
+    $sql = "SELECT * FROM report WHERE username='$pusername' and id='$id' ";
+    
 
-    // $sql = "SELECT * FROM patient WHERE username='$pusername'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    
 
-    // $result = mysqli_query($conn, $sql);
 
+    $visit_date=$row['visit_date'];
+
+
+}
+
+if($filename==null)
+{
+
+    $sql = "SELECT * FROM report WHERE username='$pusername' and id='$id' ";
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $filename=$row['photo'];
+
+
+}
     // if (($result->num_rows > 0)) {
 
 
@@ -39,7 +60,7 @@ include './configure.php';
 
 
         //some task for images
-
+else{
 
 
         $filename = $_FILES['photo']['name'];
@@ -64,6 +85,7 @@ include './configure.php';
             }
          }
          
+     }
 
 
           
@@ -77,7 +99,7 @@ include './configure.php';
                 echo "<script>alert('Wow! report is update.');</script>";
                 $success["report"] = "Report updated successfully";
 
-                header("Location:../Medi-Report.php?success=" . serialize($success) . "errors=" . serialize($errors)); 
+                header("Location:../doctor-report.php?success=" . serialize($success) . "errors=" . serialize($errors)); 
             } else {
                 echo "<script>alert('something unusual happend');</script>" . mysqli_error($conn);
                 $errors["report"] = "Report updatingg failed";

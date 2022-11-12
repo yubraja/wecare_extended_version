@@ -88,7 +88,7 @@
                         <input type="submit" name="submit"  onclick="openpopup()" value="LogIn">
 
                         <a href="./forget-password.html">
-                            <input type="button" value="Forget Password">
+                            <input type="button" name="forget" value="Forget Password">
                         </a>
                     </p>
                 </form>

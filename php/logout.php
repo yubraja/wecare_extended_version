@@ -3,6 +3,8 @@
     session_start();
 
     session_destroy();
-    header("Location:../first.html");
+    $success['logout']="Logged out successfully!!";
+
+    header("Location:../first.php?success".serialize($success));
 
 ?>

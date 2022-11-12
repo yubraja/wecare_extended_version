@@ -37,13 +37,13 @@ if (isset($_POST['submit'])) {
 
 		
 		$errors['login'] = "Woops! Email or Password is Wrong.";
-		header("Location: ../first.html?error=".serialize($errors));
+		header("Location: ../first.php?error=".serialize($errors));
 
 
 	}
 }
 else{
 	$errors['login'] = "You can't access directly!!.";
-	header("Location: ../first.html?errors=".serialize($errors));
+	header("Location: ../first.php?errors=".serialize($errors));
 }
 ?>

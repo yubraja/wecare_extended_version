@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) //if submit is clicked
             } else {
                 $errors["image"] = "Image uploading failed!";
 
-                // header("Location: ../Add-Reports.html?error=".serialize($errors));//if something goes wrong we redirect to add_reports.php with error msg
+                // header("Location: ../add-reports.html?error=".serialize($errors));//if something goes wrong we redirect to add_reports.php with error msg
             }
 
 
@@ -107,21 +107,21 @@ if (isset($_POST['submit'])) //if submit is clicked
                 echo "<script>alert('Wow! report is pushed.');</script>";
                 $success["report"] = "Report pushed successfully";
 
-                header("Location:../Add-Reports.html?success=" . serialize($success) . "errors=" . serialize($errors)); //if pushed then redirected to add_reports.html and success msg is provided 
+                header("Location:../add-reports.html?success=" . serialize($success) . "errors=" . serialize($errors)); //if pushed then redirected to add_reports.html and success msg is provided 
             } else {
                 echo "<script>alert('something unusual happend');</script>" . mysqli_error($conn);
                 $errors["report"] = "Report pushing failed";
-                header("Location:../Add-Reports.html?error=" . serialize($errors) . "&formdata=" . serialize($_POST)); //if not pushed then redirected to add_reports.html and error msg is provided 
+                header("Location:../add-reports.html?error=" . serialize($errors) . "&formdata=" . serialize($_POST)); //if not pushed then redirected to add_reports.html and error msg is provided 
 
             }
         }
     } else {
         echo "<script>alert('Username is not valid');</script>";
         $errors["username"] = "Username is not valid";
-        header("Location:../Add-Reports.html?error=" . serialize($error) . "&formdata=" . serialize($_POST)); //if username is not valid then redirected to add_reports.html and error msg is provided
+        header("Location:../add-reports.html?error=" . serialize($error) . "&formdata=" . serialize($_POST)); //if username is not valid then redirected to add_reports.html and error msg is provided
     }
 } else {
     echo "<script>alert('You can't access this direcly ');</script>";
-    header("Location:../first.html"); //if user tries to access this page directly then location is add_reports.html
+    header("Location:../first.php"); //if user tries to access this page directly then location is add_reports.html
 
 }

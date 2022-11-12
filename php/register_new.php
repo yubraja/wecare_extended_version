@@ -42,6 +42,7 @@ if(isset($_POST['submit'])){
 					
 					$_SESSION['patient'] = $username;
 					$success["report"]="register completed";
+                    
                     header("Location: ../view-reports.php?success=".serialize($success));
                 }
                 else{
@@ -75,8 +76,8 @@ if(isset($_POST['submit'])){
 					
 					$_SESSION['doctor'] = $username;
 					$success["report"]="register completed";
-                    header("Location: ../Medi-Report.php?success=".serialize($success));
-                }
+                    header("Location: ../search.php?success=".serialize($success));
+                }   
                 else{
                     echo "<script>alert('Error: " . $sqlRegister . "<br>" . mysqli_error($conn)."');</script>";
                     

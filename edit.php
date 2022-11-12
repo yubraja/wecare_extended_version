@@ -137,7 +137,7 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Next Visit Date</label>
                     <input type="date" class="form-control border border-2 border-success"
-                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" required>
+                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" >
                 </div>
                 <?php echo $row['visit_date'];?>
 
@@ -147,7 +147,7 @@ $id=$_GET['id'];
                 <div class="form-group mt-3">
                     <label for="exampleFormControlFile1">Input the File Photo (Everything_All_About_Disease)</label>
                     <input type="file" class="form-control-file border border-2 border-success"
-                        id="exampleFormControlFile1" name="photo" required ?>
+                        id="exampleFormControlFile1" name="photo"  ?>
                 </div>
                 <?php     
                         echo $row['photo'];  ?>

@@ -1,6 +1,6 @@
 <?php
-session_start();
-if(isset($_POST['forget']) )
+
+if(isset($_POST['submit']) )
 {
   $email=$_POST['useremail'];
   $username=$_POST['username'];
@@ -9,13 +9,15 @@ if(isset($_POST['forget']) )
   $pass=md5($_POST['userpassword']);
   $repass=md5($_POST['repassword']);
 
+ 
+
+
   if($pass==$repass)
   {
-    if($_SESSION['patient']!=null)
-    {
-      $query="SELECT  username from patient where username=$username ";
+    echo $username;
+      $query="SELECT  username from patient where username='$username' ";
     $result_query=mysqli_query($conn,$query);
-    if(!($result_query ->num_rows >0))
+    if(($result_query ->num_rows >0))
     {
       $sql="UPDATE patient SET password='$pass' WHERE username='$username' AND email='$email'";
     $result=mysqli_query($conn,$sql);
@@ -27,18 +29,29 @@ if(isset($_POST['forget']) )
 
 
 
-      header("Location:../view-reports.php?success=".serialize($success));
+      header("Location:../first.php?success=".serialize($success));
     }
+    else{
+      $errors["password"]="Some error occurs during changing password";
+      
+
+
+
+      header("Location:../first.php?success=".serialize($errors));
+    
+    }
+    }
+
     else
     {
       $erros["password"]="Password Changing Failed";
-      header("Location:../forget_password.html?error=".serialize($errors));
+      header("Location:../forget-password.html?error=".serialize($errors));
       
     }
     }
     else{
       $errors['patient']="username not found";
-      header('Location:../forget_password.html?error='.serialize($errors));
+      header('Location:../forget-password.html?error='.serialize($errors));
     }
     }
 
@@ -63,22 +76,22 @@ if(isset($_POST['forget']) )
 
 
 
-      header("Location:../Medi-Report.html?success=".serialize($success));
+      header("Location:../doctor-report.php?success=".serialize($success));
     }
     else
     {
       $erros["password"]="Password Changing Failed";
-      header("Location:../forget_password.html?error=".serialize($errors));
+      header("Location:../forget-password.html?error=".serialize($errors));
       
     }
-    }
+    
     else{
       $errors['patient']="username not found";
-      header('Location:../forget_password.html?error='.serialize($errors));
+      header('Location:../forget-password.html?error='.serialize($errors));
     }
-    }
+    
     else{
-      header("Location:../first.html");
+      header("Location:../first.php");
     }
     
     
@@ -87,15 +100,19 @@ if(isset($_POST['forget']) )
 
 
 
+    }
   }
   else
   {
     $errors["password"]="Password Doesn't Match";
-    header("Location:../forget_password.html?error=".serialize($errors));
+    header("Location:../forget-password.html?error=".serialize($errors));
   }
  
 }
+
 else{
-    echo"<script>alert('You have no permission here!!')</script>";
-    header('Location:../first.html');
+  $errors['access']="Trying to access directly!!";
+    header('Location:../first.php?error='.serialize($errors));
 }
+
+?>
