@@ -2,17 +2,17 @@
 include './php/configure.php';
 
 
-$id=$_GET['id'];
+$id = $_GET['id'];
 
 
 
 
 
 
-     $sql = "SELECT * FROM report WHERE id='$id'";
-     $resultSelect = mysqli_query($conn, $sql);
+$sql = "SELECT * FROM report WHERE id='$id'";
+$resultSelect = mysqli_query($conn, $sql);
 
-     $row = mysqli_fetch_array($resultSelect);
+$row = mysqli_fetch_array($resultSelect);
 
 
 
@@ -78,29 +78,20 @@ $id=$_GET['id'];
 
             <div class="container mt-3">
                 <label for="exampleDataList" class="form-label">Report no:</label>
-                <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList"
-                    name="id"  readonly   value=<?php echo $id;  ?>
-                    
-            
-
-            <div class="container mt-3">
+                <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList" name="id" readonly value=<?php echo $id;  ?> <div class="container mt-3">
                 <label for="exampleDataList" class="form-label">Patients's Username(बिरामीको प्रयोगकर्ता नाम)</label>
-                <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList"
-                    name="pusername"     value=<?php echo $row['username'];  ?>
-                    >
+                <input class="form-control border border-2 border-success" list="datalistOptions" id="exampleDataList" name="pusername" value=<?php echo $row['username'];  ?>>
 
                 <div class="form-group mt-3 ">
                     <label for="exampleFormControlInput1">Patients's Email Address(बिरामीको इमेल ठेगाना)</label>
-                    <input type="email" class="form-control border border-2 border-success" name="pemail"
-                        id="exampleFormControlInput1"  value=<?php echo $row['email'];  ?>>
+                    <input type="email" class="form-control border border-2 border-success" name="pemail" id="exampleFormControlInput1" value=<?php echo $row['email'];  ?>>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlSelect1">Witness(साक्षी) if Any </label>
-                    <select class="form-control border border-2 border-success" id="exampleFormControlSelect1"
-                        name="witness">
-                        <option value="No-one" >No-one</option>
+                    <select class="form-control border border-2 border-success" id="exampleFormControlSelect1" name="witness">
+                        <option value="No-one">No-one</option>
                         <option value="Father">Father</option>
-                        <option value="Mother"  selected>Mother</option>
+                        <option value="Mother" selected>Mother</option>
                         <option value="Sister">Sister</option>
                         <option value="Brother">Brother</option>
                         <option value="Friends">Friends</option>
@@ -111,57 +102,53 @@ $id=$_GET['id'];
 
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Symptoms(लक्षणहरू) Of The Patient</label>
-                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="symptoms" ><?php echo $row['symptom'];  ?></textarea>
+                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="symptoms"><?php echo $row['symptom'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of The Disease(रोग को विवरण)</label>
-                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="7" name="disease"  ><?php echo $row['description'];  ?></textarea>
+                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="7" name="disease"><?php echo $row['description'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of Medicines(औषधिको विवरण)</label>
-                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="medicine" ><?php echo $row['medicines'];  ?></textarea>
+                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="medicine"><?php echo $row['medicines'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Necessary Medical Reports(आवश्यक मेडिकल रिपोर्टहरू)</label>
-                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="reports" ><?php echo $row['reports'];  ?></textarea>
+                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="reports"><?php echo $row['reports'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Instruction Regarding Diet(आहार सम्बन्धि निर्देशन)</label>
-                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1"
-                        rows="5" name="diet" ><?php echo $row['instruction'];  ?></textarea>
+                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="diet"><?php echo $row['instruction'];  ?></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Next Visit Date</label>
-                    <input type="date" class="form-control border border-2 border-success"
-                        id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" >
+                    <input type="date" class="form-control border border-2 border-success" id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date">
                 </div>
-                <?php echo $row['visit_date'];?>
+                <div class="form-group mt-3">
+                    <label for="exampleFormControlInput1">Doctor's Name(डाक्टरको नाम)</label>
+                    <input type="text" class="form-control border border-2 border-success" id="exampleFormControlInput1" placeholder="Prof Dr. Sadikshya Bhandari (MBBS MD)" name="doctor_name">
+                </div>
+                <?php echo $row['visit_date']; ?>
 
 
                 <!-- Report photo  -->
 
                 <div class="form-group mt-3">
                     <label for="exampleFormControlFile1">Input the File Photo (Everything_All_About_Disease)</label>
-                    <input type="file" class="form-control-file border border-2 border-success"
-                        id="exampleFormControlFile1" name="photo"  ?>
+                    <input type="file" class="form-control-file border border-2 border-success" id="exampleFormControlFile1" name="photo" ?>
                 </div>
-                <?php     
-                        echo $row['photo'];  ?>
+                <?php
+                echo $row['photo'];  ?>
 
                 <!-- report photo End here  -->
                 <hr style="height: 2px ;">
 
                 <div class="modal-footer">
-                    <a >
-                        <button type="submit"name="submit" class="btn btn-success" data-bs-dismiss="modal"
-                        >Update</button>
+                    <a>
+                        <button type="submit" name="submit" class="btn btn-success" data-bs-dismiss="modal">Update</button>
                     </a>
                     <a>
-                        <button  type="button" class="btn btn-danger data-bs-dismiss=" modal" onclick="delete_records(<?php echo $row['id'];?>)">Delete</button>
+                        <button type="button" class="btn btn-danger data-bs-dismiss=" modal" onclick="delete_records(<?php echo $row['id']; ?>)">Delete</button>
                     </a>
                 </div>
             </div>
@@ -174,20 +161,18 @@ $id=$_GET['id'];
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 
-         crossorigin="anonymous"></script>
-<script type="text/javascript">
-     
-       function delete_records(id){
-           
-       
-       report_id=id;
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function delete_records(id) {
 
-        location.replace("./php/delete_record.php?id="+ report_id);
 
-          
+            report_id = id;
+
+            location.replace("./php/delete_record.php?id=" + report_id);
+
+
         }
-
-        </script>
+    </script>
 </body>
 
 </html>
