@@ -1,12 +1,13 @@
 <?php
-include "configure.php";
+include "./configure.php";
 $errors = array();
 $sucess = array();
+echo "hiii";
 
 
 if (isset($_POST['submit'])) //if submit is clicked
 {
-
+    echo"shoo";
     //getting all the data from the form and storing it in variables
 
 
@@ -19,6 +20,10 @@ if (isset($_POST['submit'])) //if submit is clicked
     $reports = $_POST['reports'];
     $diet = $_POST['diet'];
     $visit_date = $_POST['visit_date'];
+    $prescribed_by=$_SESSION['doctor'];
+    echo $pusername;
+
+    echo $prescribed_by;
 
 
 
@@ -80,13 +85,13 @@ if (isset($_POST['submit'])) //if submit is clicked
             } else {
                 $errors["image"] = "Image uploading failed!";
 
-                // header("Location: ../add-reports.html?error=".serialize($errors));//if something goes wrong we redirect to add_reports.php with error msg
+                // header("Location: ../add-reports.php?error=".serialize($errors));//if something goes wrong we redirect to add_reports.php with error msg
             }
 
 
             //inserting data into database
 
-            $sql1 = "INSERT INTO report (username,email,witness,symptom,description,medicines,reports,instruction,visit_date,photo) VALUES ('$pusername','$pemail','$witness','$symptoms','$disease','$medicine','$reports','$diet','$visit_date','$filename')";
+            $sql1 = "INSERT INTO report (username,email,witness,symptom,description,medicines,reports,instruction,visit_date,photo,prescribed_by) VALUES ('$pusername','$pemail','$witness','$symptoms','$disease','$medicine','$reports','$diet','$visit_date','$filename','$prescribed_by')";
 
             // $result= mysqli_query($conn,$sql1);
 
@@ -107,21 +112,21 @@ if (isset($_POST['submit'])) //if submit is clicked
                 echo "<script>alert('Wow! report is pushed.');</script>";
                 $success["report"] = "Report pushed successfully";
 
-                header("Location:../add-reports.html?success=" . serialize($success) . "errors=" . serialize($errors)); //if pushed then redirected to add_reports.html and success msg is provided 
+                header("Location:../add-reports.php?success=" . serialize($success) . "errors=" . serialize($errors)); //if pushed then redirected to add_reports.php and success msg is provided 
             } else {
                 echo "<script>alert('something unusual happend');</script>" . mysqli_error($conn);
                 $errors["report"] = "Report pushing failed";
-                header("Location:../add-reports.html?error=" . serialize($errors) . "&formdata=" . serialize($_POST)); //if not pushed then redirected to add_reports.html and error msg is provided 
+                header("Location:../add-reports.php?error=" . serialize($errors) . "&formdata=" . serialize($_POST)); //if not pushed then redirected to add_reports.php and error msg is provided 
 
             }
         }
     } else {
         echo "<script>alert('Username is not valid');</script>";
         $errors["username"] = "Username is not valid";
-        header("Location:../add-reports.html?error=" . serialize($error) . "&formdata=" . serialize($_POST)); //if username is not valid then redirected to add_reports.html and error msg is provided
+        header("Location:../add-reports.php?error=" . serialize($error) . "&formdata=" . serialize($_POST)); //if username is not valid then redirected to add_reports.php and error msg is provided
     }
 } else {
     echo "<script>alert('You can't access this direcly ');</script>";
-    header("Location:../first.php"); //if user tries to access this page directly then location is add_reports.html
+    header("Location:../first.php"); //if user tries to access this page directly then location is add_reports.php
 
 }

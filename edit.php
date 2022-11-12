@@ -126,7 +126,7 @@ $row = mysqli_fetch_array($resultSelect);
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Doctor's Name(डाक्टरको नाम)</label>
-                    <input type="text" class="form-control border border-2 border-success" id="exampleFormControlInput1" placeholder="Prof Dr. Sadikshya Bhandari (MBBS MD)" name="doctor_name">
+                    <input type="text" class="form-control border border-2 border-success" id="exampleFormControlInput1" value=<?php echo$_SESSION['doctor']; ?> name="doctor_name" readonly>
                 </div>
                 <?php echo $row['visit_date']; ?>
 
