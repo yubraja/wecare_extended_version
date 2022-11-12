@@ -4,16 +4,9 @@
 
 include './php/configure.php';
 
-<<<<<<< HEAD
-session_start(); //session started
-$_SESSION['patient'] = "oyee";
-=======
- session_start();//session started
->>>>>>> 1f80696b0bba9097117dcc718bfd87b0f2c0dcae
+session_start();    
 
 if ($_SESSION['patient']) {
-
-
 
     $username = $_SESSION['patient'];
 }
@@ -24,14 +17,9 @@ if ($_SESSION['patient']) {
 
 
 
-<<<<<<< HEAD
-else {
-    header("Location:./first.html?error=direct access is not permitted");
-=======
 else{
     $error['login']="direct access is not permitted";
     header("Location:./first.php?error".serialize($error));
->>>>>>> 1f80696b0bba9097117dcc718bfd87b0f2c0dcae
 }
 
 
