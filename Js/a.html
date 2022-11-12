@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+        <input type="text" name="dname" id="dname" placeholder="doctor's name">
+        <input type="password" name="dpass" id="dpass" placeholder="password">
+        <input type="submit" value="login" id="click" onclick=" return Loginvalidation()">
+
+    <script>
+        // document.getElementById('click').onclick=Loginvalidation(); 
+
+        function Loginvalidation() {
+            var dname = "";
+            var dpass = "";
+            var pname = "";
+            var ppass = "";
+
+            var dname = Document.getElementById("dname").value;
+            var dpass = Document.getElementById("dpass").value;
+            var pname = Document.getElementById("pname").value;
+            var ppass = Document.getElementById("ppass").value;
+
+            // now for doctor only 
+            if (dname == "" && dpass == "") {
+                alert("Both Field can't be empty !!");
+                return false;
+            }
+            else if (dname == "" || dname == null) {
+                alert("Oops Username Can't be empty");
+                return false;
+            }
+            else if (dpass == "" || dname == null) {
+                alert("Oops password Can't be empty");
+                return false;
+            }
+
+            // now if both field are not emtpy then i have to do some validation
+
+            if (dname != "" && dpass != "") {
+                var validname = "^[[A-Z]|[a-z]][[A-Z]|[a-z]|\\d|[_]]{8,29}$";
+                var validpass = "/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/";
+
+                if (dname.matches(validname) && dpass.matches(validpass)) {
+                    location.href = "../Medi-Report.php"
+                }
+                else {
+                    alert("Username and password does not meet the criteria ");
+                    if (dname.length < 8 || dpass.length < 8) {
+                        alert("Username and Password length must be greater than 8 character");
+                    }
+                }
+            }
+
+        }
+    </script>
+    <!-- <script src="./first.html_validataion.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

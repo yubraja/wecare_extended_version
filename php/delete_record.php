@@ -15,11 +15,11 @@ $id=$_GET['id'];
 
      if($resultDelete){
         $success['delete']="Successfully Deleted!!";
-        header("Location:../Medi-Report.php?success=".serialize($success));
+        header("Location:../doctor-report.php?success=".serialize($success));
      }
      else{
          $error['delete']="Error during delete!!";
-        header("Location:../Medi-Report.php?error=".serialize($error));
+        header("Location:../doctor-report.php?error=".serialize($error));
 
      }
 

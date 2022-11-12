@@ -147,7 +147,7 @@ $id=$_GET['id'];
 
                 <div class="modal-footer">
                     <a href=<?php if($_SESSION['doctor']!=null){
-                        echo "./Medi-Report.php";
+                        echo "./doctor-report.php";
                     }
                     else{
                         echo "./view-reports.php";
@@ -155,7 +155,7 @@ $id=$_GET['id'];
                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Understand</button>
                     </a>
                     <a href=<?php if($_SESSION['doctor']!=null){
-                        echo "./Medi-Report.php";
+                        echo "./doctor-report.php";
                     }
                     else{
                         echo "./view-reports.php";

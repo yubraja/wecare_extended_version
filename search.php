@@ -1,11 +1,23 @@
 <?php
 session_start();
+if($_SESSION['doctor']){
+
 
 if($_SESSION['p_report'] )
 {
      unset($_SESSION['p_report']);
 
 }
+
+}
+
+
+else{
+    $error['login']='You are not logged in';
+header("location:first.php?error=".serialize($error));
+}
+
+
 
 
 ?>
@@ -176,14 +188,14 @@ if($_SESSION['p_report'] )
                 <li><a href="">Contact</a></li>
                 <li><a href="">Reviews</a></li>
                 <li><a href="">FAQs</a></li>
-                <li class="btn"><a href="" >WelCome Mr. Doctor</a></li>
+                <li class="btn"><a href="" >WelCome <?php echo $_SESSION['doctor'];  ?></a></li>
             </ul>
         </nav>
 
         <!-- search box  -->
         <div class="content">
             <h1>Search Username Here</h1>
-            <form action="./Medi-Report.php" method="post">
+            <form action="./doctor-report.php" method="post">
 
                 <input name="username" type="search" placeholder="&#x270e Enter Username ">
                 <button type="submit" name="submit">Search</button>
