@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/78e6212ab3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./first.css">
+    <link rel="stylesheet" href="./Js/style.css">
     <!-- favicon ko link  -->
     <link rel="shortcut icon" href="./images/logooo.png" type="image/x-icon">
-
+    
+    <script src="https://kit.fontawesome.com/78e6212ab3.js" crossorigin="anonymous"></script>
     <title>WeCare-Interface</title>
     <style>
         footer {
@@ -82,12 +80,14 @@
                 </div>
 
                 <!-- patient ko form:post  method ma  -->
-                <form action="./php/loginp.php" method="post">
-                    <p>
-                        <input type="text" name="pname" id="pname" size="10" placeholder="Username">
+                <form action="/" method="post">
+                    <p class="input-controls">
+                        <input type="text" name="pname" id="pname"  placeholder="Username">
+                        <div class="error"></div>
                     </p>
                     <p>
-                        <input type="password" name="ppass" id="ppass"  placeholder="Password">
+                        <input type="password" name="ppass" id="ppass" placeholder="Password">
+                        <div class="error"></div>
                     </p>
                     <p>
                         <input type="submit" name="submit" onclick="Loginvalidation()" value="LogIn">
@@ -117,32 +117,7 @@
     </form>
 
 
-    <!-- <div class="popup admin" id="popup">
-            <div class="img-box">
-                <h2 class="fw-semibold">Patients</h2>
-                <img src="./images/born-baby.jpg" height="180" width="270" alt="">
-            </div>
-
-            patient ko form:post  method ma 
-            <form action="./php/loginp.php" method="post">
-                <p>
-                    <input type="text" name="aname" id="aname" placeholder="Username">
-                </p>
-                <p>
-                    <input type="password" name="apass" id="apass" placeholder="Password">
-                </p>
-                <p>
-                    <input type="submit" name="submit" onclick="openpopup()" value="LogIn">
-                    
-                    <a href="./forget-password.html">
-                        <input type="button" value="Forget Password">
-                    </a>
-                </p>
-            </form>
-            
-            
-        </div> -->
-
+  
     <!-- script for popup as a admin -->
 
     <script>
@@ -159,14 +134,10 @@
 
     <script src="./Js/first.html_validataion.js"></script>
 
-    <!-- buttom bavbar start from here  -->
-
     <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark" style="background-color: #14A44D;">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">We<i class="fa-solid fa-circle-nodes"></i>Care</a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarCollapse" style="">
@@ -184,8 +155,7 @@
                         <a class="nav-link active fw-semibold" href="#">QA Forum</a>
                     </li>
                     <li class="nav-item dropup">
-                        <a class="nav-link dropdown-toggle active fw-semibold" href="#" id="dropdown10"
-                            data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <a class="nav-link dropdown-toggle active fw-semibold" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown10">
                             <li><a class="dropdown-item fw-semibold" href="#">Services 1</a></li>
                             <li><a class="dropdown-item fw-semibold" href="#">Services 2</a></li>
@@ -195,9 +165,7 @@
                             <li><a class="dropdown-item" href="#">Services 3</a></li>
                         </ul>
                     </li>
-                    <!-- <li class="nav-item">
-                        <button class="nav-link active fw-semibold text-muted" >Login As a Admin</button>
-                    </li> -->
+
 
                 </ul>
             </div>
