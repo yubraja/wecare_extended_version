@@ -1,8 +1,7 @@
 <?php
 include "./configure.php";
-$errors = array();
-$sucess = array();
 
+echo "hello";
 
 if (isset($_POST['submit'])) //if submit is clicked
 {
@@ -20,7 +19,7 @@ if (isset($_POST['submit'])) //if submit is clicked
     $visit_date = $_POST['visit_date'];
     $prescribed_by=$_SESSION['doctor'];
     echo $pusername;
-    echo $
+
     echo $prescribed_by;
 
 

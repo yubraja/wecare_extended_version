@@ -80,7 +80,7 @@
                 </div>
 
                 <!-- patient ko form:post  method ma  -->
-                <form action="/" method="post">
+                <form action="./php/loginp.php" method="post">
                     <p class="input-controls">
                         <input type="text" name="pname" id="pname"  placeholder="Username">
                         <div class="error"></div>
@@ -92,7 +92,7 @@
                     <p>
                         <input type="submit" name="submit" value="LogIn">
 
-                        <a href="./forget-password.html">
+                        <a >
                             <input type="button" name="forget" value="Forget Password">
                         </a>
                     </p>
