@@ -124,11 +124,12 @@ $row = mysqli_fetch_array($resultSelect);
                     <label for="exampleFormControlInput1">Next Visit Date</label>
                     <input type="date" class="form-control border border-2 border-success" id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date">
                 </div>
+                <?php echo $row['visit_date']; ?>
+
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Doctor's Name(डाक्टरको नाम)</label>
-                    <input type="text" class="form-control border border-2 border-success" id="exampleFormControlInput1" value=<?php echo$_SESSION['doctor']; ?> name="doctor_name" readonly>
+                    <input type="text" class="form-control border border-2 border-success" id="exampleFormControlInput1" value=<?php echo $row['prescribed_by']; ?> name="doctor_name" readonly>
                 </div>
-                <?php echo $row['visit_date']; ?>
 
 
                 <!-- Report photo  -->

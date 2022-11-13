@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include "./configure.php";
 
 echo "hello";
@@ -19,7 +21,10 @@ if (isset($_POST['submit'])) //if submit is clicked
     $visit_date = $_POST['visit_date'];
     $prescribed_by=$_SESSION['doctor'];
     echo $pusername;
-
+    echo $pemail;
+    echo "<br>";
+    echo $medicine;
+    echo "<br>";
     echo $prescribed_by;
 
 
@@ -109,7 +114,7 @@ if (isset($_POST['submit'])) //if submit is clicked
                 echo "<script>alert('Wow! report is pushed.');</script>";
                 $success["report"] = "Report pushed successfully";
 
-                header("Location:../add-reports.php?success=" . serialize($success) . "errors=" . serialize($errors)); //if pushed then redirected to add_reports.php and success msg is provided 
+                header("Location:../doctor-report.php?success=" . serialize($success) . "errors=" . serialize($errors)); //if pushed then redirected to add_reports.php and success msg is provided 
             } else {
                 echo "<script>alert('something unusual happend');</script>" . mysqli_error($conn);
                 $errors["report"] = "Report pushing failed";
@@ -127,3 +132,6 @@ if (isset($_POST['submit'])) //if submit is clicked
     header("Location:../first.php"); //if user tries to access this page directly then location is add_reports.php
 
 }
+
+
+?>

@@ -95,7 +95,7 @@ $row = mysqli_fetch_array($resultSelect);
 
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Symptoms(लक्षणहरू) Of The Patient</label>
-                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="symptoms" <?php echo $row['symptom'];  ?>readonly></textarea>
+                    <textarea class="form-control border border-2 border-success" id="exampleFormControlTextarea1" rows="5" name="symptoms" <?php echo $row['symptom'];  ?> readonly></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Description Of The Disease(रोग को विवरण)</label>
@@ -117,11 +117,12 @@ $row = mysqli_fetch_array($resultSelect);
                     <label for="exampleFormControlInput1">Next Visit Date</label>
                     <input type="datetime-local" class="form-control border border-2 border-success" id="exampleFormControlInput1" placeholder="dd/mm/yyyy" name="visit_date" readonly>
                 </div>
+                <?php echo $row['visit_date']; ?>
+
                 <div class="form-group mt-3">
                     <label for="exampleFormControlInput1">Doctor's Name(डाक्टरको नाम)</label>
-                    <input type="text" class="form-control border border-2 border-success" id="exampleFormControlInput1" placeholder="Prof Dr. Sadikshya Bhandari (MBBS MD)" name="doctor_name">
+                    <input type="text" class="form-control border border-2 border-success" id="exampleFormControlInput1"  name="doctor_name" value= <?php echo $row['prescribed_by']; ?> readonly>
                 </div>
-                <?php echo $row['visit_date']; ?>
 
 
 

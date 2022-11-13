@@ -1,6 +1,8 @@
 <?php
 include './configure.php';
 
+session_start();
+
 
     $id=$_POST['id'];
     $pusername=$_POST['pusername'];
@@ -14,8 +16,7 @@ include './configure.php';
     $diet = $_POST['diet'];
     $visit_date = $_POST['visit_date'];
     $filename = $_FILES['photo']['name'];
-  
-
+   
 
     //to store date and time we set default timezone for kathmandu and then adding date and time stamp on thisssss
 
@@ -52,6 +53,7 @@ if($filename==null)
     $filename=$row['photo'];
 
 
+
 }
     // if (($result->num_rows > 0)) {
 
@@ -86,7 +88,6 @@ else{
          }
          
      }
-
 
           
             $sql1 = "UPDATE  report SET email='$pemail',witness='$witness',symptom='$symptoms',description='$disease',medicines='$medicine',reports='$reports',instruction='$diet',visit_date='$visit_date',photo='$filename'  where id='$id'";
