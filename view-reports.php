@@ -47,8 +47,9 @@ else{
         }
 
         main {
-            background-image: url(./images/hospital.jpg);
+            /* background-image: url(./images/hos1.jpg); */
             /* background-repeat: no-repeat; */
+            background-color: black;
             background-size: contain;
             margin-top: 0px;
 
@@ -62,19 +63,24 @@ else{
 
 <body>
 
-    <header class="p-3 border-bottom bg-success">
+    <header class="p-2 border-bottom bg-success">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                    <a class="navbar-brand fw-bold fs-3" href="#">We<i class="fa-solid fa-circle-nodes"></i>Care</a>
+                    <a class="navbar-brand fw-bold link-light fs-3" href="#">We<i class="fa-solid fa-circle-nodes"></i>Care</a>
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+<<<<<<< HEAD
+                    
+                    <li><a href="#" class="nav-link px-5 link-dark fs-5">FAQs</a></li>
+=======
                     <li><a href="./add-reports.php" class="nav-link px-2 link-light fs-5 ">Add-Reports</a></li>
                     <li><a href="#" class="nav-link px-2 link-warning fs-5">Medi-Reports</a></li>
                     <!-- <li><a href="./Medicine.html" class="nav-link px-2 link-light fs-5">Medi-Cine</a></li>
           <li><a href="symptoms.html" class="nav-link px-2 link-light fs-5">Symptoms</a></li> -->
                     <li><a href="#" class="nav-link px-2 link-dark fs-5">FAQs</a></li>
+>>>>>>> 253024ec61e2c910f328b99416f63668c3c475fe
                 </ul>
 
                 <div class="dropdown text-end">
@@ -101,16 +107,20 @@ else{
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light text-dark">WeCare:Medi-Reports</h1>
-                    <p class="lead text-secondary">Here You can add, delete and also modify Patients medical reports
-                        here . We WeCare
+                    <h1 class="fw-light text-white">WeCare:View-Reports</h1>
+                    <p class="lead text-secondary">Here You can only view your  medical reports . We WeCare
                         Member and management team take all responsibility to take care of all your reports . <br> Thank
                         you!!!!!!!
                     </p>
                     <p>
+<<<<<<< HEAD
+                        <a href="/" class="btn btn-danger my-2"><i class="fa-solid fa-plus"></i>More About Us</a>
+                        <a href="#" class="btn btn-success my-2"><i class="fa-solid fa-minus"></i>Learn About Us</a>
+=======
                         <a href="./add-reports.php" class="btn btn-success my-2"><i class="fa-solid fa-plus"></i>Add
                             Reports</a>
                         <a href="#" class="btn btn-danger my-2"><i class="fa-solid fa-minus"></i>Delete Reports</a>
+>>>>>>> 253024ec61e2c910f328b99416f63668c3c475fe
                     </p>
                 </div>
             </div>
@@ -154,7 +164,7 @@ else{
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a onclick="oclick(<?php echo $id; ?>)" class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i>View
+                                            <a onclick="oclick(<?php echo $id; ?>)" class="btn btn-outline-success my-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i>View
                                                 More</a>
 
                                         </div>
@@ -245,4 +255,4 @@ else{
     </script>
 
 </body>
-< /html>
+</html>

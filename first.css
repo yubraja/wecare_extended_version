@@ -7,15 +7,17 @@
 }
 
 .containerrr {
-  border: 2px solid rgb(206, 206, 206);
+  /* border: 2px solid rgb(206, 206, 206); */
   border-radius: 25px;
   /* margin: 15px 15px 105px 105px; */
-  margin-top: 7px;
+  margin-top: 30px;
   margin-left: 80px;
   margin-right: 80px;
   margin-bottom: 10px;
   padding: 7px 65px;
-  box-shadow: 7px 7px 5px rgb(41, 41, 41), -7px -7px 5px rgb(41, 41, 41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* box-shadow: -7px -7px 5px rgb(41, 41, 41) ;    */
   /* width: auto; */
 }
@@ -35,12 +37,14 @@
 .container-fluiddd {
   padding: 6px 105px;
   /* border: 2px solid purple; */
-  background-color: blanchedalmond;
+  background-color:rgb(182, 182, 182);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   border-radius: 35px;
+  box-shadow: 7px 7px 5px rgb(41, 41, 41), -7px -7px 5px rgb(41, 41, 41);
+
   /* width: fit-content;  */
 }
 
@@ -89,7 +93,7 @@
 }
 input[type="submit"],
 [type="button"] {
-  background-color: #14A44D;
+  background-color: #14a44d;
   color: white;
   transition: 0.5s;
 }
@@ -138,19 +142,17 @@ input[type="submit"]:hover {
   top: 0;
   left: 50%;
   /* to make it on the center of the webpage */
-  transform: translate(-50%, -50%) scale(0.1) ;
+  transform: translate(-50%, -50%) scale(0.1);
   border-radius: 15px;
   text-align: center;
   padding: 0 30px 30px;
   visibility: hidden;
   transition: tranform 0.4s, top 0.4s;
 }
-.open-popup{
+.open-popup {
   visibility: visible;
   top: 50%;
   transform: translate(-50%, -50%);
-
-
 }
 
 /* for error popup  */
@@ -163,18 +165,17 @@ input[type="submit"]:hover {
   top: 0;
   left: 50%;
   /* to make it on the center of the webpage */
-  transform: translate(-50%, -50%) scale(0.1) ;
+  transform: translate(-50%, -50%) scale(0.1);
   border-radius: 15px;
   text-align: center;
   padding: 0 30px 30px;
   visibility: hidden;
   transition: tranform 0.4s, top 0.4s;
 }
-.open-popuperror{
+.open-popuperror {
   visibility: visible;
   top: 50%;
   transform: translate(-50%, -50%);
-
 }
 
 .popup img {
@@ -197,18 +198,17 @@ input[type="submit"]:hover {
   font-size: 17px;
   font-family: "Josefin Sans", sans-serif;
 }
-.popup input::placeholder{
+.popup input::placeholder {
   font-size: 21px;
   font-family: "Josefin Sans", sans-serif;
-
 }
 .popup button {
   color: black;
-  background-color: #14A44D;
+  background-color: #14a44d;
   width: 45%;
   display: inline-flex;
-  justify-content: space-between ;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 12px;
   margin-top: 5px;
   padding: 7px 25px;
@@ -219,7 +219,6 @@ input[type="submit"]:hover {
   font-weight: bold;
 }
 
-
 @keyframes alphabet {
   from {
     color: transparent;
@@ -229,3 +228,6 @@ input[type="submit"]:hover {
     color: black;
   }
 }
+
+
+/* ***************** */
