@@ -2,12 +2,10 @@
 include "./configure.php";
 $errors = array();
 $sucess = array();
-echo "hiii";
 
 
 if (isset($_POST['submit'])) //if submit is clicked
 {
-    echo"shoo";
     //getting all the data from the form and storing it in variables
 
 
@@ -22,7 +20,7 @@ if (isset($_POST['submit'])) //if submit is clicked
     $visit_date = $_POST['visit_date'];
     $prescribed_by=$_SESSION['doctor'];
     echo $pusername;
-
+    echo $
     echo $prescribed_by;
 
 

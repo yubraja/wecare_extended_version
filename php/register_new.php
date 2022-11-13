@@ -40,22 +40,21 @@ if(isset($_POST['submit'])){
                     echo "<script>alert('New record created successfully');</script>";
 
 					
-					$_SESSION['patient'] = $username;
 					$success["report"]="register completed";
                     
-                    header("Location: ../view-reports.php?success=".serialize($success));
+                    header("Location: ../first.php?success=".serialize($success));
                 }
                 else{
                     echo "<script>alert('Error: " . $sqlRegister . "<br>" . mysqli_error($conn)."');</script>";
                     
                     $errors["register"]="Register incomplete";
-                    header("Location: ../register.html?errors=".serialize($errors));
+                    header("Location: ../Register.html?errors=".serialize($errors));
                 }
             }
             else{
                 echo "<script>alert('Username already exists');</script>";
                 $errors["register"]="Username already exists";
-                header("Location: ../register.html?errors=".serialize($errors));
+                header("Location: ../Register.html?errors=".serialize($errors));
             }
         }
 
@@ -74,34 +73,33 @@ if(isset($_POST['submit'])){
                     echo "<script>alert('New record created successfully');</script>";
 
 					
-					$_SESSION['doctor'] = $username;
-					$success["report"]="register completed";
-                    header("Location: ../search.php?success=".serialize($success));
+					$success["doctor"]="register completed";
+                    header("Location: ../first.php?success=".serialize($success));
                 }   
                 else{
                     echo "<script>alert('Error: " . $sqlRegister . "<br>" . mysqli_error($conn)."');</script>";
                     
                     $errors["register"]="Register incomplete";
-                    header("Location: ../register.html?errors=".serialize($errors));
+                    header("Location: ../Register.html?errors=".serialize($errors));
                 }
             }
             else{
                 echo "<script>alert('Username already exists');</script>";
                 $errors["register"]="Username already exists";
-                header("Location: ../register.html?errors=".serialize($errors));
+                header("Location: ../Register.html?errors=".serialize($errors));
             }
         }
         else{
             echo "<script>alert('Please select a user type');</script>";
             $errors["register"]="Please select a user type";
-            header("Location: ../register.html?errors=".serialize($errors));
+            header("Location: ../Register.html?errors=".serialize($errors));
         }
        
     }
     else{
         echo "<script>alert('Password does not match');</script>";
         $errors["register"]="Password does not match";
-        header("Location: ../register.html?errors=".serialize($errors));
+        header("Location: ../Register.html?errors=".serialize($errors));
     }
        
         
@@ -110,6 +108,6 @@ if(isset($_POST['submit'])){
 else{
     echo "<script>alert('Please fill all the fields');</script>";
     $errors["register"]="Please fill all the fields";
-    header("Location: ../register.html?errors=".serialize($errors));
+    header("Location: ../Register.html?errors=".serialize($errors));
 }
 ?>

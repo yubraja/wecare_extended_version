@@ -11,9 +11,7 @@ if (isset($_POST['submit'])) {
     
     $username=$_POST['pname'];
     $password=md5(($_POST['ppass']));
-	echo $username;
-	echo $password;
-
+	
 	$sql = "SELECT * FROM patient WHERE username='$username' AND password='$password'";
 	$result = mysqli_query($conn, $sql);
 

@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- doctor ko form : post method ma  -->
-                <form action="" method="post">
+                <form action="./php/logind.php" method="post">
                     <p>
                         <input type="text" name="dname" id="dname" placeholder="Username">
                     </p>
@@ -47,7 +47,7 @@
 
                         <!-- onclick="openpopup()" yo chai error pop up lagi thiyo -->
 
-                        <input name="submit" type="submit" onsubmit="Loginvalidation()" value="LogIn">
+                        <input name="submit" type="submit"  value="LogIn">
 
                         <a href="forget-password.html">
                             <input type="button" value="Forget Password">
