@@ -108,7 +108,6 @@ if(isset($_POST['submit']) )
     header("Location:../forget-password.html?error=".serialize($errors));
   }
  
-}
 
 else{
   $errors['access']="Trying to access directly!!";
