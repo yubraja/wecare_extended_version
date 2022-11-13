@@ -1,0 +1,26 @@
+    <!-- popup wala  line  -->
+    <!-- <form action="" method="post">
+
+        <div class="popup" id="popup">
+            <img src="./images/error.png" alt="">
+            <h2>Error!!!</h2>
+            <p>If you don't have an account then you can't login into the page . <br> Thank You.</p>
+            <button type="button" class="btnn" style="background-color: red;" onclick="closepopup()">Close</button>
+        </div>
+    </form> -->
+
+
+  
+    <!-- script for popup as a admin -->
+
+    <!-- <script>
+        let popup = document.getElementById('popup');
+
+        function openpopup() {
+            popup.classList.add("open-popup");
+        }
+
+        function closepopup() {
+            popup.classList.remove("open-popup");
+        }
+    </script> -->

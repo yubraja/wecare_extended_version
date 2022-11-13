@@ -45,7 +45,7 @@
 
                         <!-- onclick="openpopup()" yo chai error pop up lagi thiyo -->
 
-                        <input name="submit" type="submit" onsubmit="Loginvalidation()" value="LogIn">
+                        <input name="submit" type="submit" value="LogIn">
 
                         <a href="forget-password.html">
                             <input type="button" value="Forget Password">
@@ -90,7 +90,7 @@
                         <div class="error"></div>
                     </p>
                     <p>
-                        <input type="submit" name="submit" onclick="Loginvalidation()" value="LogIn">
+                        <input type="submit" name="submit" value="LogIn">
 
                         <a href="./forget-password.html">
                             <input type="button" name="forget" value="Forget Password">
@@ -105,34 +105,6 @@
         </div>
     </div>
 
-    <!-- popup wala  line  -->
-    <form action="" method="post">
-
-        <div class="popup" id="popup">
-            <img src="./images/error.png" alt="">
-            <h2>Error!!!</h2>
-            <p>If you don't have an account then you can't login into the page . <br> Thank You.</p>
-            <button type="button" class="btnn" style="background-color: red;" onclick="closepopup()">Close</button>
-        </div>
-    </form>
-
-
-  
-    <!-- script for popup as a admin -->
-
-    <script>
-        let popup = document.getElementById('popup');
-
-        function openpopup() {
-            popup.classList.add("open-popup");
-        }
-
-        function closepopup() {
-            popup.classList.remove("open-popup");
-        }
-    </script>
-
-    <script src="./Js/first.html_validataion.js"></script>
 
     <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark" style="background-color: #14A44D;">
         <div class="container-fluid">
