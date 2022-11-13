@@ -77,8 +77,15 @@ $result = mysqli_query($conn, $sql);
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+<<<<<<< HEAD
                     <li><a href="./add-reports.html" class="nav-link px-2 link-dark fs-5 ">Add-Reports</a></li>
                     <li><a href="#" class="nav-link px-2 link-light fs-5">Medi-Reports</a></li>
+=======
+                    <li><a href="./add-reports.php" class="nav-link px-2 link-light fs-5 ">Add-Reports</a></li>
+                    <li><a href="#" class="nav-link px-2 link-warning fs-5">Medi-Reports</a></li>
+                    <!-- <li><a href="./Medicine.html" class="nav-link px-2 link-light fs-5">Medi-Cine</a></li>
+          <li><a href="symptoms.html" class="nav-link px-2 link-light fs-5">Symptoms</a></li> -->
+>>>>>>> 253024ec61e2c910f328b99416f63668c3c475fe
                     <li><a href="#" class="nav-link px-2 link-dark fs-5">FAQs</a></li>
                 </ul>
 
@@ -118,7 +125,7 @@ $result = mysqli_query($conn, $sql);
                         you!!!!!!!
                     </p>
                     <p>
-                        <a href="./add-reports.html" class="btn btn-success my-2"><i class="fa-solid fa-plus"></i>Add
+                        <a href="./add-reports.php" class="btn btn-success my-2"><i class="fa-solid fa-plus"></i>Add
                             Reports</a>
                         <a href="./search.php" class="btn btn-danger my-2"><i class="fa-solid fa-search"></i>Search username</a>
                     </p>
@@ -189,7 +196,7 @@ $result = mysqli_query($conn, $sql);
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-outline-info my-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">View</a>
+                                            data-bs-target="#exampleModal" onclick="viewClick(<?php echo $id;?>)">View</a>
                                         <a href="#" class="btn btn-outline-danger my-2" data-bs-toggle="modal"
                                             data-bs-target="#exampleModall"
                                             onclick="oclick(<?php echo $id;?>)">Edit</a>
@@ -286,6 +293,11 @@ $result = mysqli_query($conn, $sql);
         location.replace("./edit.php?id="+ report_id);
 
           
+        }
+
+        function viewClick(id){
+            report_id=id;
+            location.replace("./view.php?id="+report_id);
         }
         </script>
 
