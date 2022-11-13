@@ -77,10 +77,15 @@ $result = mysqli_query($conn, $sql);
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+<<<<<<< HEAD
+                    <li><a href="./add-reports.html" class="nav-link px-2 link-dark fs-5 ">Add-Reports</a></li>
+                    <li><a href="#" class="nav-link px-2 link-light fs-5">Medi-Reports</a></li>
+=======
                     <li><a href="./add-reports.php" class="nav-link px-2 link-light fs-5 ">Add-Reports</a></li>
                     <li><a href="#" class="nav-link px-2 link-warning fs-5">Medi-Reports</a></li>
                     <!-- <li><a href="./Medicine.html" class="nav-link px-2 link-light fs-5">Medi-Cine</a></li>
           <li><a href="symptoms.html" class="nav-link px-2 link-light fs-5">Symptoms</a></li> -->
+>>>>>>> 253024ec61e2c910f328b99416f63668c3c475fe
                     <li><a href="#" class="nav-link px-2 link-dark fs-5">FAQs</a></li>
                 </ul>
 
@@ -91,7 +96,7 @@ $result = mysqli_query($conn, $sql);
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        <img src="./images/gaurab.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -122,7 +127,7 @@ $result = mysqli_query($conn, $sql);
                     <p>
                         <a href="./add-reports.php" class="btn btn-success my-2"><i class="fa-solid fa-plus"></i>Add
                             Reports</a>
-                        <a href="./search.php" class="btn btn-danger my-2"><i class="fa-solid fa-minus"></i>Search username</a>
+                        <a href="./search.php" class="btn btn-danger my-2"><i class="fa-solid fa-search"></i>Search username</a>
                     </p>
                 </div>
             </div>
